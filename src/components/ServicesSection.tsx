@@ -106,7 +106,7 @@ export default function CancerCareSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
           >
-            Bridge Gap Hospitals: <br />
+            Bridge Gap Hospitals <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-[#E92393] via-purple-600 to-[#E92393]">
               Your All-Inclusive Cancer Care Companion
             </span>

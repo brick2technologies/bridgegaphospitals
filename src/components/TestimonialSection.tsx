@@ -52,7 +52,7 @@ export default function TestimonialSection() {
     { icon: Heart, value: "5000+", label: "Lives Saved" },
     { icon: Award, value: "95%", label: "Success Rate" },
     { icon: Clock, value: "24/7", label: "Care Available" },
-    { icon: Shield, value: "15+", label: "Years Experience" }
+    { icon: Shield, value: "8+", label: "Years Experience" }
   ];
 
   const nextTestimonial = () => {

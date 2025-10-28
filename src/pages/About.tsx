@@ -28,7 +28,7 @@ export default function AboutPage() {
 
   const stats = [
     { icon: Users, number: "10,000+", label: "Patients Treated", color: "from-blue-500 to-cyan-500" },
-    { icon: Award, number: "15+", label: "Years Experience", color: "from-purple-500 to-pink-500" },
+    { icon: Award, number: "8+", label: "Years Experience", color: "from-purple-500 to-pink-500" },
     { icon: Stethoscope, number: "50+", label: "Expert Doctors", color: "from-orange-500 to-red-500" },
     { icon: Star, number: "98%", label: "Success Rate", color: "from-green-500 to-teal-500" }
   ];
@@ -69,39 +69,72 @@ export default function AboutPage() {
   ];
 
   const doctors = [
-    {
-      name: "Dr. Sarah Johnson",
-      specialization: "Chief Radiation Oncologist",
-      experience: "20+ Years",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop",
-      qualifications: ["MD, DNB Radiation Oncology", "Fellowship in Advanced Radiotherapy"],
-      expertise: ["LINAC Radiation Therapy", "Brachytherapy", "Precision Oncology"]
-    },
-    {
-      name: "Dr. Michael Chen",
-      specialization: "Head of Surgical Oncology",
-      experience: "18+ Years",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
-      qualifications: ["MS, MCh Surgical Oncology", "FACS"],
-      expertise: ["Minimally Invasive Surgery", "Complex Tumor Resection", "Robotic Surgery"]
-    },
-    {
-      name: "Dr. Priya Sharma",
-      specialization: "Medical Oncologist",
-      experience: "15+ Years",
-      image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop",
-      qualifications: ["MD Medicine, DM Medical Oncology", "European Board Certified"],
-      expertise: ["Chemotherapy", "Immunotherapy", "Targeted Therapy"]
-    },
-    {
-      name: "Dr. James Williams",
-      specialization: "Diagnostic Radiologist",
-      experience: "12+ Years",
-      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop",
-      qualifications: ["MD Radiology", "Fellowship in Oncologic Imaging"],
-      expertise: ["CT Scan", "MRI", "PET Scan Interpretation"]
-    }
-  ];
+  {
+    name: "Dr. P. Pradyumna Reddy",
+    specialization: "Chief Radiation Oncologist",
+    experience: "20+ Years",
+    image: "",
+    qualifications: ["MD", "MD"],
+    expertise: ["LINAC Radiation Therapy", "Brachytherapy", "Precision Oncology"],
+  },
+  {
+    name: "Dr. Amardeepika",
+    specialization: "Center Head",
+    experience: "15+ Years",
+    image: "",
+    qualifications: ["MBBS", "DLO", "DNB"],
+    expertise: ["Head & Neck Oncology", "Patient Counseling", "Clinical Operations"],
+  },
+  {
+    name: "Dr. Chinna Babu Sunkavalli",
+    specialization: "Robotic Surgical Oncologist",
+    experience: "15+ Years",
+    image: "",
+    qualifications: ["M.S.", "M.Ch"],
+    expertise: ["Robotic Surgery", "Complex Tumor Resection", "Minimally Invasive Oncology"],
+  },
+  {
+    name: "Dr. Panasa Aravind",
+    specialization: "Radiation Oncologist",
+    experience: "12+ Years",
+    image: "",
+    qualifications: ["MBBS", "MD", "DNB (RT)"],
+    expertise: ["External Beam Radiation", "IMRT", "Stereotactic Radiotherapy"],
+  },
+  {
+    name: "Dr. Karthik Kurapati",
+    specialization: "Surgical Oncologist",
+    experience: "10+ Years",
+    image: "",
+    qualifications: ["M.S.", "M.Ch"],
+    expertise: ["Breast & GI Oncology", "Head and Neck Surgery", "Laparoscopic Procedures"],
+  },
+  {
+    name: "Dr. Venugopal Arroju",
+    specialization: "Medical Oncologist",
+    experience: "12+ Years",
+    image: "",
+    qualifications: ["MD", "DM"],
+    expertise: ["Chemotherapy", "Immunotherapy", "Targeted Therapy"],
+  },
+  {
+    name: "Dr. Anil Kumar Muppidi",
+    specialization: "Anesthesiologist",
+    experience: "10+ Years",
+    image: "",
+    qualifications: ["MD"],
+    expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
+  },
+  {
+    name: "Dr. M. Chaitanya Kumar",
+    specialization: "Radiation Oncologist",
+    experience: "9+ Years",
+    image: "",
+    qualifications: ["MBBS", "DNB"],
+    expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
+  },
+];
+
 
   const treatmentProcess = [
     {
@@ -337,7 +370,7 @@ export default function AboutPage() {
                     <Award className="w-8 h-8 text-white" strokeWidth={2.5} />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">15+ Years</p>
+                    <p className="text-2xl font-bold text-gray-900">8+ Years</p>
                     <p className="text-gray-600 font-medium">Of Excellence</p>
                   </div>
                 </div>
@@ -407,64 +440,74 @@ export default function AboutPage() {
       </section>
 
       {/* Meet Our Doctors */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] to-purple-600">Expert Team</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium">
-              World-class oncologists dedicated to your healing journey
-            </p>
-          </motion.div>
+     <section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-center mb-12"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Meet Our{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] to-purple-600">
+          Expert Team
+        </span>
+      </h2>
+      <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium">
+        World-class oncologists dedicated to your healing journey
+      </p>
+    </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {doctors.map((doctor, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group cursor-pointer"
-              >
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-purple-200">
-                  <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src={doctor.image} 
-                      alt={doctor.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-xl font-bold mb-1">{doctor.name}</h3>
-                      <p className="text-sm opacity-90">{doctor.specialization}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-[#E92393] font-bold mb-3">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm">{doctor.experience}</span>
-                    </div>
-                    <div className="space-y-2">
-                      {doctor.qualifications.map((qual, idx) => (
-                        <p key={idx} className="text-sm text-gray-600 font-medium">{qual}</p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {doctors.map((doctor, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ y: -10 }}
+          className="group cursor-pointer"
+        >
+          <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-purple-200 h-full flex flex-col">
+            <div className="relative h-80 overflow-hidden">
+              <img
+                src={doctor.image}
+                alt={doctor.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-xl font-bold mb-1">
+                  {doctor.name}
+                </h3>
+                <p className="text-sm opacity-90">
+                  {doctor.specialization}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 flex flex-col justify-between flex-grow">
+              <div className="flex items-center gap-2 text-[#E92393] font-bold mb-3">
+                <Clock className="w-4 h-4" />
+                <span className="text-sm">Exp: {doctor.experience}</span>
+              </div>
+
+              <p className="text-sm text-gray-600 font-medium">
+                <span className="font-semibold">Qualifications:</span>{" "}
+                {doctor.qualifications.join(", ")}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Treatment Process */}
       <section className="py-20 relative overflow-hidden">
