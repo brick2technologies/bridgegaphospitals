@@ -45,7 +45,7 @@ export default function FooterSection() {
           <div>
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {['About Us', 'Our Services', 'Treatment Options', 'Success Stories', 'Research & Innovation', 'Careers'].map((link, index) => (
+              {['About Us', 'Our Services', 'Treatment Options', 'Success Stories', 'Careers'].map((link, index) => (
                 <motion.li
                   key={index}
                   whileHover={{ x: 5 }}

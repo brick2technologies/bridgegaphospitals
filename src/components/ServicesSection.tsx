@@ -1,17 +1,9 @@
 import { easeInOut, motion} from "framer-motion";
-import { Microscope, Users, Activity, Heart, HandHeart, Wallet, Sparkles, ChevronRight } from "lucide-react";
+import {  Users, Activity, Heart, HandHeart, Wallet, Sparkles, ChevronRight } from "lucide-react";
 
 export default function CancerCareSection() {
   const services = [
-    {
-      icon: Microscope,
-      title: "Innovative Research Methods",
-      description: "Cutting-edge clinical trials and breakthrough treatments to give you access to tomorrow's cures today.",
-      gradient: "from-purple-600 via-purple-500 to-violet-600",
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-700",
-      borderColor: "border-purple-200"
-    },
+
     {
       icon: Users,
       title: "Expert Oncologists' Guidance",

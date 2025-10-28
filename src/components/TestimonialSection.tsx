@@ -190,7 +190,7 @@ export default function TestimonialSection() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full bg-white shadow-lg border-2 border-gray-200 flex items-center justify-center hover:border-[#E92393] hover:bg-[#E92393] hover:text-white transition-all duration-300"
+              className="w-12 h-12 rounded-full bg-white text-[#E92393] shadow-lg border-2 border-gray-200 flex items-center justify-center hover:border-[#E92393] hover:bg-[#E92393] hover:text-white transition-all duration-300"
             >
               <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
             </motion.button>
@@ -214,7 +214,7 @@ export default function TestimonialSection() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full bg-white shadow-lg border-2 border-gray-200 flex items-center justify-center hover:border-[#E92393] hover:bg-[#E92393] hover:text-white transition-all duration-300"
+              className="w-12 h-12 rounded-full bg-white text-[#E92393] shadow-lg border-2 border-gray-200 flex items-center justify-center hover:border-[#E92393] hover:bg-[#E92393] hover:text-white transition-all duration-300"
             >
               <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
             </motion.button>

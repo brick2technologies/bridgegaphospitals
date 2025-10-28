@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,7 +27,7 @@ export default function HeroSection() {
       subtitle: "Every Step.",
       description:
         "Our dedicated team of oncologists and healthcare professionals guide you through your journey with empathy and expertise.",
-      image: "hero-cancer-care.png",
+      image: "hero-care.png",
       color: "linear-gradient(90deg, #E92393, #005AA9)",
     },
   ];
@@ -40,19 +40,14 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const nextSlide = () =>
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () =>
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
   const currentSlideData = slides[currentSlide];
 
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-white via-pink-50 to-blue-50 overflow-hidden"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-blue-50 overflow-hidden"
     >
-      {/* Animated Blurred Background Circles */}
+      {/* Animated Blurred Background Circles - Full Width */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: easeInOut }}
@@ -65,8 +60,8 @@ export default function HeroSection() {
         className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-[#005AA9]/20 rounded-full blur-3xl"
       />
 
-      {/* Main Hero Content */}
-      <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 py-20 z-10">
+      {/* Main Hero Content - Full Width */}
+      <div className="relative w-full px-6 md:px-12 lg:px-16 py-20 z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -74,10 +69,10 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col-reverse md:flex-row items-center justify-between gap-12"
+            className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 max-w-full"
           >
             {/* Text Section */}
-            <div className="flex-1 text-center md:text-left max-w-xl">
+            <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -119,7 +114,7 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start"
+                className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start"
               >
                 <button
                   className="group inline-flex items-center gap-2 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
@@ -140,7 +135,7 @@ export default function HeroSection() {
               </motion.div>
 
               {/* Slide Indicators */}
-              <div className="flex gap-3 mt-8 justify-center md:justify-start">
+              <div className="flex gap-3 mt-8 justify-center lg:justify-start">
                 {slides.map((_, index) => (
                   <button
                     key={index}
@@ -168,50 +163,32 @@ export default function HeroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex-1 relative flex justify-center"
+              className="flex-1 relative flex justify-center lg:justify-end w-full"
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full blur-2xl opacity-30"
+                className="absolute inset-0 rounded-full blur-2xl opacity-30 -z-10"
                 style={{ background: currentSlideData.color }}
               />
               <img
                 src={currentSlideData.image}
                 alt="Cancer Treatment"
-                className="relative w-full max-w-[450px] md:max-w-[500px] object-contain drop-shadow-2xl"
+                className="relative w-full max-w-[450px] md:max-w-[550px] lg:max-w-[600px] object-contain drop-shadow-2xl"
               />
             </motion.div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Navigation Arrows */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 flex justify-between pointer-events-none">
-          <button
-            onClick={prevSlide}
-            className="pointer-events-auto bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            style={{ color: currentSlideData.color }}
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="pointer-events-auto bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-            style={{ color: currentSlideData.color }}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
       </div>
 
-      {/* Stats Section */}
+      {/* Stats Section - Full Width */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-0 left-0 right-0 z-20 px-6"
+        className="absolute bottom-0 left-0 right-0 z-20 px-6 md:px-12 lg:px-16"
       >
-        <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-pink-100">
+        <div className="max-w-full mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-pink-100">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { number: "150+", label: "Surgical Oncology Patients" },
