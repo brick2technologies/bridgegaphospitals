@@ -47,7 +47,7 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#E92393] mb-4">
             About the Hospital
           </h2>
-          <h3 className="text-xl md:text-2xl font-semibold text-[#007BFF] mb-6 leading-snug">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#005AA9] mb-6 leading-snug">
             Indur Cancer Hospital – Comprehensive and Affordable Cancer Care
           </h3>
 

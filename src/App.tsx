@@ -9,6 +9,10 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs";
 
+// Services Pages
+
+import SurgicalOncology from "./pages/services/SurgicalOncology";
+
 function App() {
   return (
     <div className="font-sans bg-white min-h-screen flex flex-col">
@@ -22,6 +26,9 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Services Pages */}
+          <Route path="/services/surgical-oncology" element={<SurgicalOncology />} />
         </Routes>
       </main>
 

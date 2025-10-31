@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export default function CareStatsSection() {
   const stats = [
-    { number: "150+", label: "Surgical Oncology Patients Served" },
-    { number: "75+", label: "Medical Oncology Patients Served" },
-    { number: "225+", label: "Radiation Oncology Patients Served" },
+    { number: "700+", label: "Surgical Oncology Patients Served" },
+    { number: "3200+", label: "Medical Oncology Patients Served" },
+    { number: "6000+", label: "Radiation Oncology Patients Served" },
   ];
 
   return (
