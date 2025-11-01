@@ -390,7 +390,7 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                   <p>
-                    Founded with a vision to make advanced cancer care accessible to everyone, Bridge Gap Hospital has been at the forefront of oncological excellence for over 15 years.
+                    Founded with a vision to make advanced cancer care accessible to everyone, Bridge Gap Hospital has been at the forefront of oncological excellence for over 17+ years.
                   </p>
                   <p>
                     Our mission is simple yet profound: to bridge the gap between world-class cancer treatment and affordability. We believe that every patient deserves access to the best medical care, regardless of their financial background.
@@ -433,7 +433,7 @@ export default function AboutPage() {
                       <Award className="w-8 h-8 text-white" strokeWidth={2.5} />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">8+ Years</p>
+                      <p className="text-2xl font-bold text-gray-900">17+ Years</p>
                       <p className="text-gray-600 font-medium">Of Excellence</p>
                     </div>
                   </div>
