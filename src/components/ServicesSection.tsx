@@ -9,6 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 function CancerCareSection() {
   // ✅ Constant data memoized at declaration (no re-renders)
@@ -195,15 +196,6 @@ function CancerCareSection() {
                     {service.description}
                   </p>
 
-                  <div className="flex items-center gap-2 text-sm font-bold text-[#E92393] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>Learn More</span>
-                    <ChevronRight
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                      strokeWidth={3}
-                      aria-hidden="true"
-                    />
-                  </div>
-
                   {/* Decorative overlay */}
                   <div
                     aria-hidden="true"
@@ -237,6 +229,7 @@ function CancerCareSection() {
               className="absolute -inset-2 bg-linear-to-r from-[#E92393] to-purple-600 blur-2xl rounded-full"
               aria-hidden="true"
             />
+            <Link to='/contact' >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -246,6 +239,7 @@ function CancerCareSection() {
               <span>Schedule Your Consultation</span>
               <ChevronRight className="w-6 h-6" strokeWidth={3} aria-hidden="true" />
             </motion.button>
+            </Link>
           </div>
 
           <p className="mt-5 text-gray-700 text-lg font-semibold">

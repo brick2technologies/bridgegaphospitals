@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function AboutSection() {
   return (
@@ -72,7 +73,7 @@ export default function AboutSection() {
             </span>{" "}
             to make advanced cancer care affordable and accessible to everyone.
           </p>
-
+          <Link to='/about'>
           <motion.button
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
@@ -80,6 +81,7 @@ export default function AboutSection() {
           >
             Know More
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>

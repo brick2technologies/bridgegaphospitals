@@ -1,198 +1,169 @@
 import { motion } from "framer-motion";
 import {
-  Scissors,
-  Users,
   Heart,
-  Shield,
+  Users,
+  Apple,
+  Smile,
   Brain,
-  Target,
+  HandHeart,
   Sparkles,
+  Shield,
   Activity,
+  MessageCircle,
+ 
   CheckCircle,
   Phone,
   Calendar,
   MapPin,
   Clock,
-  Stethoscope,
-  Eye,
-  Microscope,
-  UserCheck,
   HeartPulse,
-  Zap,
-  TrendingUp,
-  ClipboardCheck,
+
+  Stethoscope,
+  Sun,
+
+  Flower2,
 } from "lucide-react";
 
-export default function SurgicalOncologyPage() {
-  const majorProcedures = [
+export default function SupportiveCarePage() {
+  const coreServices = [
     {
-      icon: Users,
-      title: "Head & Neck Oncology",
-      description: "Advanced surgical procedures for head and neck cancers including wide local excision of buccal mucosa carcinoma with neck dissection and flap reconstruction to achieve clear margins and restore function.",
-      gradient: "from-blue-600 to-cyan-600",
-      bgColor: "bg-blue-100",
-      iconColor: "text-blue-700",
-      borderColor: "border-blue-200",
+      icon: Apple,
+      title: "Nutritional Counseling",
+      description: "Personalized dietary plans to help maintain strength, manage treatment side effects, and promote recovery through balanced nutrition.",
+      gradient: "from-green-600 to-emerald-600",
+      bgColor: "bg-green-100",
+      iconColor: "text-green-700",
+      borderColor: "border-green-200",
       features: [
-        "Wide local excision procedures",
-        "Neck dissection with reconstruction",
-        "Flap reconstruction techniques",
-        "Functional restoration focus",
+        "Customized meal planning",
+        "Treatment side-effect management",
+        "Strength and recovery support",
+        "Stage-specific nutrition guidance",
       ],
     },
     {
       icon: Heart,
-      title: "Breast Cancer Surgery",
-      description: "Comprehensive breast cancer surgical options including modified radical mastectomy, breast-conserving surgery (lumpectomy), and sentinel lymph node biopsy, often followed by reconstruction.",
+      title: "Palliative Care",
+      description: "Compassionate, holistic support to relieve pain, manage symptoms, and provide emotional and spiritual comfort to patients and families.",
       gradient: "from-pink-600 to-rose-600",
       bgColor: "bg-pink-100",
       iconColor: "text-pink-700",
       borderColor: "border-pink-200",
       features: [
-        "Modified radical mastectomy",
-        "Breast-conserving surgery",
-        "Sentinel lymph node biopsy",
-        "Reconstruction options",
-      ],
-    },
-    {
-      icon: Activity,
-      title: "Gastrointestinal Oncology",
-      description: "Complex GI surgeries including subtotal or total gastrectomy for stomach cancer, colectomy for colorectal malignancies, and pancreaticoduodenectomy (Whipple procedure) for pancreatic cancer.",
-      gradient: "from-orange-600 to-amber-600",
-      bgColor: "bg-orange-100",
-      iconColor: "text-orange-700",
-      borderColor: "border-orange-200",
-      features: [
-        "Gastrectomy procedures",
-        "Colorectal surgeries",
-        "Whipple procedure",
-        "Advanced GI techniques",
-      ],
-    },
-    {
-      icon: Target,
-      title: "Specialized Oncology",
-      description: "Major procedures including radical nephrectomy for renal tumors, hysterectomy with bilateral salpingo-oophorectomy for gynecologic cancers, and thoracotomy with lobectomy or pneumonectomy for lung cancer.",
-      gradient: "from-purple-600 to-indigo-600",
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-700",
-      borderColor: "border-purple-200",
-      features: [
-        "Radical nephrectomy",
-        "Gynecologic cancer surgery",
-        "Thoracic procedures",
-        "Tailored to patient factors",
+        "Pain relief and symptom management",
+        "Emotional support services",
+        "Spiritual care and counseling",
+        "Family support programs",
       ],
     },
   ];
 
-  const careApproach = [
+  const holisticSupport = [
     {
-      icon: Microscope,
-      title: "Precision Planning",
-      description: "Advanced imaging and multidisciplinary discussions for accuracy",
-      color: "blue",
-    },
-    {
-      icon: Zap,
-      title: "Minimally Invasive",
-      description: "Modern techniques to minimize risks and recovery time",
-      color: "green",
-    },
-    {
-      icon: Shield,
-      title: "Strict Safety",
-      description: "Aseptic protocols and quality standards throughout",
-      color: "red",
+      icon: Brain,
+      title: "Psychological Well-being",
+      description: "Mental health support and counseling throughout treatment",
+      color: "purple",
     },
     {
       icon: HeartPulse,
-      title: "Patient-Centered",
-      description: "Personalized treatment plans for optimal outcomes",
-      color: "purple",
+      title: "Physical Support",
+      description: "Rehabilitation and physical therapy services",
+      color: "blue",
+    },
+    {
+      icon: MessageCircle,
+      title: "Emotional Care",
+      description: "Individual and family counseling support",
+      color: "pink",
+    },
+    {
+      icon: Flower2,
+      title: "Spiritual Comfort",
+      description: "Spiritual guidance and emotional peace",
+      color: "teal",
     },
   ];
 
-  const postOpCare = [
+  const nutritionJourney = [
     {
-      phase: "Monitoring",
-      icon: Eye,
-      description: "Round-the-clock post-operative patient monitoring",
+      phase: "Diagnosis",
+      icon: Stethoscope,
+      description: "Initial nutritional assessment and baseline planning",
     },
     {
-      phase: "Pain Control",
-      icon: Heart,
-      description: "Effective pain and infection management",
-    },
-    {
-      phase: "Recovery Support",
+      phase: "Treatment",
       icon: Activity,
-      description: "Nutritional guidance and physiotherapy",
+      description: "Managing side effects with targeted nutrition",
     },
     {
-      phase: "Follow-up",
-      icon: UserCheck,
-      description: "Regular follow-ups and counseling",
+      phase: "Recovery",
+      icon: Sun,
+      description: "Rebuilding strength and promoting healing",
+    },
+    {
+      phase: "Survivorship",
+      icon: Smile,
+      description: "Long-term wellness and healthy lifestyle",
     },
   ];
 
-  const qualityStandards = [
+  const palliativeFocus = [
     {
-      icon: Brain,
-      title: "Multidisciplinary Team",
-      items: ["Surgical oncologists", "Medical oncologists", "Radiologists", "Pathologists"],
+      icon: Shield,
+      title: "Pain Management",
+      items: ["Medication optimization", "Alternative therapies", "Comfort measures"],
     },
     {
-      icon: Target,
-      title: "Advanced Technology",
-      items: ["Advanced imaging systems", "Minimally invasive tools", "Modern surgical equipment"],
+      icon: HandHeart,
+      title: "Symptom Control",
+      items: ["Nausea management", "Fatigue support", "Appetite improvement"],
     },
     {
-      icon: ClipboardCheck,
-      title: "Quality Protocols",
-      items: ["Strict aseptic standards", "Safety checklists", "Outcome monitoring"],
+      icon: Users,
+      title: "Family Support",
+      items: ["Caregiver guidance", "Family counseling", "Grief support"],
     },
     {
-      icon: TrendingUp,
-      title: "Continuous Care",
-      items: ["Pre-operative preparation", "Intra-operative precision", "Post-operative excellence"],
+      icon: MessageCircle,
+      title: "Emotional Care",
+      items: ["Counseling services", "Support groups", "Spiritual guidance"],
     },
   ];
 
   const colorMap = {
-    blue: {
-      bg: "bg-blue-100",
-      text: "text-blue-700",
-      gradient: "from-blue-600 to-cyan-600",
-    },
-    green: {
-      bg: "bg-green-100",
-      text: "text-green-700",
-      gradient: "from-green-600 to-emerald-600",
-    },
-    red: {
-      bg: "bg-red-100",
-      text: "text-red-700",
-      gradient: "from-red-600 to-rose-600",
-    },
     purple: {
       bg: "bg-purple-100",
       text: "text-purple-700",
       gradient: "from-purple-600 to-pink-600",
     },
+    blue: {
+      bg: "bg-blue-100",
+      text: "text-blue-700",
+      gradient: "from-blue-600 to-cyan-600",
+    },
+    pink: {
+      bg: "bg-pink-100",
+      text: "text-pink-700",
+      gradient: "from-pink-600 to-rose-600",
+    },
+    teal: {
+      bg: "bg-teal-100",
+      text: "text-teal-700",
+      gradient: "from-teal-600 to-emerald-600",
+    },
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-cyan-50 pt-20">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-pink-50 pt-20">
+      {/* Hero Section - New Design */}
       <section className="relative overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-cyan-50 to-indigo-50">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50">
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-            <div className="absolute top-40 right-20 w-64 h-64 bg-indigo-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <div className="absolute top-20 left-10 w-72 h-72 bg-pink-300 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-40 right-20 w-64 h-64 bg-orange-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
           </div>
         </div>
 
@@ -210,31 +181,32 @@ export default function SurgicalOncologyPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-lg mb-6"
               >
-                <Scissors className="w-5 h-5 text-[#0066CC]" />
-                <span className="text-sm font-bold text-gray-900">Advanced Surgical Excellence</span>
+                <Heart className="w-5 h-5 text-[#E92393]" />
+                <span className="text-sm font-bold text-gray-900">Holistic Care Approach</span>
               </motion.div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Surgical Oncology<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] via-cyan-600 to-indigo-500">
-                  Department
+                Supportive Care &<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] via-purple-600 to-orange-500">
+                  Rehabilitation
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
-                Precision surgical interventions for cancer treatment through advanced techniques,
-                multidisciplinary planning, and patient-centered care ensuring optimal outcomes and recovery.
+                Enhancing quality of life throughout your cancer journey with personalized 
+                nutrition, compassionate palliative care, and comprehensive rehabilitation services.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0066CC] to-cyan-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#E92393] to-purple-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Book Consultation</span>
                 </motion.button>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -243,23 +215,6 @@ export default function SurgicalOncologyPage() {
                   <Phone className="w-5 h-5" />
                   <span>Call Us</span>
                 </motion.button>
-              </div>
-
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                  <div className="flex items-center justify-center gap-2">
-                    <MapPin className="w-5 h-5" />
-                    <span className="text-sm">Indur, Nizamabad</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <Clock className="w-5 h-5" />
-                    <span className="text-sm">24/7 Emergency Care</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <Stethoscope className="w-5 h-5" />
-                    <span className="text-sm">Expert Surgical Team</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -276,11 +231,11 @@ export default function SurgicalOncologyPage() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   className="bg-white rounded-3xl p-6 shadow-xl"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
-                    <Scissors className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-4">
+                    <Apple className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Precision</h3>
-                  <p className="text-sm text-gray-600">Advanced surgical techniques</p>
+                  <h3 className="font-bold text-gray-900 mb-2">Nutrition</h3>
+                  <p className="text-sm text-gray-600">Personalized dietary care</p>
                 </motion.div>
 
                 <motion.div
@@ -288,11 +243,11 @@ export default function SurgicalOncologyPage() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                   className="bg-white rounded-3xl p-6 shadow-xl mt-8"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-4">
-                    <Brain className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mb-4">
+                    <Heart className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Planning</h3>
-                  <p className="text-sm text-gray-600">Multidisciplinary approach</p>
+                  <h3 className="font-bold text-gray-900 mb-2">Palliative</h3>
+                  <p className="text-sm text-gray-600">Compassionate support</p>
                 </motion.div>
 
                 <motion.div
@@ -300,11 +255,11 @@ export default function SurgicalOncologyPage() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   className="bg-white rounded-3xl p-6 shadow-xl"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-4">
-                    <Shield className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-4">
+                    <Brain className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Safety</h3>
-                  <p className="text-sm text-gray-600">Strict protocols</p>
+                  <h3 className="font-bold text-gray-900 mb-2">Mental Health</h3>
+                  <p className="text-sm text-gray-600">Psychological support</p>
                 </motion.div>
 
                 <motion.div
@@ -312,11 +267,11 @@ export default function SurgicalOncologyPage() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
                   className="bg-white rounded-3xl p-6 shadow-xl mt-8"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mb-4">
-                    <Heart className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-4">
+                    <Activity className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">Patient Care</h3>
-                  <p className="text-sm text-gray-600">Personalized treatment</p>
+                  <h3 className="font-bold text-gray-900 mb-2">Rehabilitation</h3>
+                  <p className="text-sm text-gray-600">Physical therapy</p>
                 </motion.div>
               </div>
             </motion.div>
@@ -331,25 +286,25 @@ export default function SurgicalOncologyPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 lg:p-12 border-2 border-blue-100"
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 lg:p-12 border-2 border-purple-100"
           >
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#0066CC] to-cyan-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#E92393] to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0">
                 <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  Excellence in Surgical Oncology
+                  Treating the Whole Person
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-                  At Indur Cancer Hospital, the surgical oncology department ensures precision, safety,
-                  and high-quality post-operative care through a patient-centered and technology-driven approach.
+                  At Indur Cancer Hospital, we believe in treating not just the disease but the whole 
+                  person — supporting physical, emotional, and psychological well-being through every 
+                  step of the healing process.
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  Each surgery is tailored to tumor location, stage, and patient factors, often integrated
-                  with chemotherapy and radiotherapy for optimal outcomes. Our experienced surgical oncologists
-                  use advanced imaging, minimally invasive techniques, and strict aseptic protocols to achieve
-                  accurate tumor removal while minimizing risks.
+                  Our Supportive Care and Rehabilitation services are designed to enhance the quality 
+                  of life of patients throughout their cancer journey, addressing individual needs at 
+                  every stage — from diagnosis to survivorship.
                 </p>
               </div>
             </div>
@@ -357,7 +312,7 @@ export default function SurgicalOncologyPage() {
         </div>
       </section>
 
-      {/* Major Procedures */}
+      {/* Core Services */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -367,43 +322,44 @@ export default function SurgicalOncologyPage() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Major <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-cyan-600">Surgical Procedures</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] to-purple-600">Core Services</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
-              Comprehensive surgical oncology procedures for diagnosis, staging, and definitive treatment
+              Comprehensive support for your physical and emotional well-being
             </p>
           </motion.div>
 
           <div className="space-y-6 sm:space-y-8">
-            {majorProcedures.map((procedure, index) => {
-              const Icon = procedure.icon;
+            {coreServices.map((service, index) => {
+              const Icon = service.icon;
               return (
                 <motion.div
-                  key={procedure.title}
+                  key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${procedure.borderColor}`}
+                  className={`bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 ${service.borderColor}`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                     <div className="lg:col-span-3 flex flex-col sm:flex-row items-start gap-4">
-                      <div className={`w-14 h-14 sm:w-16 sm:h-16 ${procedure.bgColor} rounded-2xl flex items-center justify-center flex-shrink-0`}>
-                        <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${procedure.iconColor}`} strokeWidth={2.5} />
+                      <div className={`w-14 h-14 sm:w-16 sm:h-16 ${service.bgColor} rounded-2xl flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${service.iconColor}`} strokeWidth={2.5} />
                       </div>
                       <div className="flex-1">
                         <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                          {procedure.title}
+                          {service.title}
                         </h3>
                         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                          {procedure.description}
+                          {service.description}
                         </p>
                       </div>
                     </div>
+
                     <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {procedure.features.map((feature, i) => (
+                      {service.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
-                          <CheckCircle className={`w-5 h-5 ${procedure.iconColor} flex-shrink-0 mt-0.5`} />
+                          <CheckCircle className={`w-5 h-5 ${service.iconColor} flex-shrink-0 mt-0.5`} />
                           <span className="text-sm text-gray-700">{feature}</span>
                         </div>
                       ))}
@@ -416,7 +372,7 @@ export default function SurgicalOncologyPage() {
         </div>
       </section>
 
-      {/* Care Approach */}
+      {/* Holistic Support */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -426,20 +382,20 @@ export default function SurgicalOncologyPage() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-cyan-600">Care Approach</span>
+              Holistic <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] to-purple-600">Support System</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
-              Patient-centered and technology-driven surgical excellence
+              Comprehensive care addressing all aspects of your well-being
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {careApproach.map((approach, index) => {
-              const Icon = approach.icon;
-              const colors = colorMap[approach.color];
+            {holisticSupport.map((support, index) => {
+              const Icon = support.icon;
+              const colors = colorMap[support.color];
               return (
                 <motion.div
-                  key={approach.title}
+                  key={support.title}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -451,9 +407,9 @@ export default function SurgicalOncologyPage() {
                     <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={2.5} />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
-                    {approach.title}
+                    {support.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 text-center">{approach.description}</p>
+                  <p className="text-sm sm:text-base text-gray-600 text-center">{support.description}</p>
                 </motion.div>
               );
             })}
@@ -461,8 +417,8 @@ export default function SurgicalOncologyPage() {
         </div>
       </section>
 
-      {/* Post-Operative Care */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+      {/* Nutrition Journey */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-green-50 to-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -471,15 +427,15 @@ export default function SurgicalOncologyPage() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Post-Operative <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Care Excellence</span>
+              Nutritional <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">Care Journey</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
-              Comprehensive support for optimal recovery and long-term well-being
+              Stage-specific nutrition support from diagnosis to survivorship
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {postOpCare.map((stage, index) => {
+            {nutritionJourney.map((stage, index) => {
               const Icon = stage.icon;
               return (
                 <motion.div
@@ -491,11 +447,11 @@ export default function SurgicalOncologyPage() {
                   className="relative"
                 >
                   <div className="bg-white rounded-2xl sm:rounded-3xl p-6 shadow-lg h-full">
-                    <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full text-white font-bold text-xl mb-4 mx-auto">
+                    <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full text-white font-bold text-xl mb-4 mx-auto">
                       {index + 1}
                     </div>
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-blue-700" strokeWidth={2.5} />
+                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-6 h-6 text-green-700" strokeWidth={2.5} />
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
                       {stage.phase}
@@ -504,8 +460,8 @@ export default function SurgicalOncologyPage() {
                       {stage.description}
                     </p>
                   </div>
-                  {index < postOpCare.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600" />
+                  {index < nutritionJourney.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-green-600 to-emerald-600" />
                   )}
                 </motion.div>
               );
@@ -514,7 +470,7 @@ export default function SurgicalOncologyPage() {
         </div>
       </section>
 
-      {/* Quality Standards */}
+      {/* Palliative Care Focus */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -524,35 +480,35 @@ export default function SurgicalOncologyPage() {
             className="text-center mb-8 sm:mb-12"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Quality <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0066CC] to-cyan-600">Standards</span>
+              Palliative Care <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600">Focus Areas</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
-              High-quality care through multidisciplinary collaboration and advanced technology
+              Comprehensive symptom management and family support
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {qualityStandards.map((standard, index) => {
-              const Icon = standard.icon;
+            {palliativeFocus.map((focus, index) => {
+              const Icon = focus.icon;
               return (
                 <motion.div
-                  key={standard.title}
+                  key={focus.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-2xl sm:rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#0066CC] to-cyan-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                  <div className="w-14 h-14 bg-gradient-to-br from-pink-600 to-rose-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
                     <Icon className="w-7 h-7 text-white" strokeWidth={2.5} />
                   </div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">
-                    {standard.title}
+                    {focus.title}
                   </h3>
                   <ul className="space-y-2">
-                    {standard.items.map((item, i) => (
+                    {focus.items.map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 bg-pink-600 rounded-full flex-shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -565,42 +521,62 @@ export default function SurgicalOncologyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-br from-[#0066CC] via-cyan-600 to-[#0066CC] rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden"
+            className="bg-gradient-to-br from-[#E92393] via-purple-600 to-[#E92393] rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl" />
               <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
             </div>
+
             <div className="relative">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                Schedule Your Surgical Consultation
+                Begin Your Journey to Wellness
               </h2>
               <p className="text-base sm:text-lg mb-8 opacity-95">
-                Expert surgical oncologists ready to provide personalized care and optimal outcomes
+                Our supportive care team is here to enhance your quality of life every step of the way
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0066CC] rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#E92393] rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call Now</span>
                 </motion.button>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all"
                 >
                   <Calendar className="w-5 h-5" />
-                  <span>Book Appointment</span>
+                  <span>Schedule Consultation</span>
                 </motion.button>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-white/20">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="flex items-center justify-center gap-2">
+                    <MapPin className="w-5 h-5" />
+                    <span className="text-sm">Indur, Nizamabad</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <Clock className="w-5 h-5" />
+                    <span className="text-sm">24/7 Support Available</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <HeartPulse className="w-5 h-5" />
+                    <span className="text-sm">Compassionate Care</span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

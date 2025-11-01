@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Allow all public routes
+Allow: /
+Allow: /services
+Allow: /services/surgical-oncology
+Allow: /about
+Allow: /gallery
+Allow: /blogs
+Allow: /contact
+
+# Block sensitive or duplicate paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login
+Disallow: /*?*
+Disallow: /*.env
+
+
+Sitemap: https://bridgegaphospitals.com/sitemap.xml 

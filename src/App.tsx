@@ -10,8 +10,12 @@ import Gallery from "./pages/Gallery";
 import Blogs from "./pages/Blogs";
 
 // Services Pages
-
 import SurgicalOncology from "./pages/services/SurgicalOncology";
+import MedicalOncology from "./pages/services/MedicalOncology";
+import RadiationOncology from "./pages/services/RadioOncology";
+import Diagnostics from "./pages/services/DiagnosticsLaboratory";
+import SupportiveCarePage from "./pages/services/SupportRehabilation";
+import PharmacyInPatientPage from "./pages/services/PharmacyPatient";
 
 function App() {
   return (
@@ -29,6 +33,11 @@ function App() {
 
           {/* Services Pages */}
           <Route path="/services/surgical-oncology" element={<SurgicalOncology />} />
+          <Route path="/services/medical-oncology" element={<MedicalOncology />} />
+          <Route path="/services/radiation-therapy" element={<RadiationOncology />} />
+          <Route path="/services/diagnostics" element={<Diagnostics />} />
+          <Route path="/services/supportive-care" element={<SupportiveCarePage />} />
+          <Route path="/services/pharmacy-in-patient" element={<PharmacyInPatientPage />} />
         </Routes>
       </main>
 
