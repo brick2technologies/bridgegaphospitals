@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -10,12 +10,13 @@ import {
   Grid3x3,
   ZoomIn,
   X,
+  type LucideIcon,
 } from 'lucide-react';
 
 /* -------------------------------------------------------------------------- */
 /* Types                                                                     */
 /* -------------------------------------------------------------------------- */
-type GalleryItem = {
+interface GalleryItem {
   id: number;
   category: string;
   title: string;
@@ -25,13 +26,13 @@ type GalleryItem = {
   bgColor: string;
   borderColor: string;
   date: string;
-};
+}
 
-type Category = {
+interface Category {
   id: string;
   name: string;
-  icon: React.ComponentType<any>;
-};
+  icon: LucideIcon;
+}
 
 /* -------------------------------------------------------------------------- */
 /* Skeleton Component                                                        */
@@ -82,7 +83,6 @@ export default function GalleryPage() {
   ];
 
   const galleryItems: GalleryItem[] = [
-    // ... (same data as your original, unchanged for brevity)
     {
       id: 1,
       category: 'activities',

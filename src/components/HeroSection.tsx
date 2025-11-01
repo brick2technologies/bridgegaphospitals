@@ -62,7 +62,7 @@ export default function HeroSection() {
         })
     );
     Promise.all(promises).then(() => setImagesLoaded(true));
-  }, []);
+  },);
 
   // Auto-slide
   useEffect(() => {
