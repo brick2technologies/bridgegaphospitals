@@ -21,10 +21,44 @@ import {
   Zap,
   TrendingUp,
   ClipboardCheck,
+  type LucideIcon,
 } from "lucide-react";
 
+// === Type Definitions ===
+type ColorKey = "blue" | "green" | "red" | "purple";
+
+interface Procedure {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  gradient: string;
+  bgColor: string;
+  iconColor: string;
+  borderColor: string;
+  features: string[];
+}
+
+interface CareApproach {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: ColorKey;
+}
+
+interface PostOpCare {
+  phase: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+interface QualityStandard {
+  icon: LucideIcon;
+  title: string;
+  items: string[];
+}
+
 export default function SurgicalOncologyPage() {
-  const majorProcedures = [
+  const majorProcedures: Procedure[] = [
     {
       icon: Users,
       title: "Head & Neck Oncology",
@@ -87,7 +121,7 @@ export default function SurgicalOncologyPage() {
     },
   ];
 
-  const careApproach = [
+  const careApproach: CareApproach[] = [
     {
       icon: Microscope,
       title: "Precision Planning",
@@ -114,7 +148,7 @@ export default function SurgicalOncologyPage() {
     },
   ];
 
-  const postOpCare = [
+  const postOpCare: PostOpCare[] = [
     {
       phase: "Monitoring",
       icon: Eye,
@@ -137,7 +171,7 @@ export default function SurgicalOncologyPage() {
     },
   ];
 
-  const qualityStandards = [
+  const qualityStandards: QualityStandard[] = [
     {
       icon: Brain,
       title: "Multidisciplinary Team",
@@ -160,7 +194,7 @@ export default function SurgicalOncologyPage() {
     },
   ];
 
-  const colorMap = {
+  const colorMap: Record<ColorKey, { bg: string; text: string; gradient: string }> = {
     blue: {
       bg: "bg-blue-100",
       text: "text-blue-700",
@@ -187,7 +221,6 @@ export default function SurgicalOncologyPage() {
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-cyan-50 pt-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-cyan-50 to-indigo-50">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full blur-3xl animate-pulse" />

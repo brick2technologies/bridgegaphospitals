@@ -17,10 +17,40 @@ import {
   Users,
   Award,
   Brain,
+  type LucideIcon,
 } from "lucide-react";
 
+// === Type Definitions ===
+type ColorKey = "blue" | "teal" | "purple" | "pink";
+
+interface RadiationTechnique {
+  icon: LucideIcon;
+  title: string;
+  fullName: string;
+  description: string;
+  gradient: string;
+  bgColor: string;
+  iconColor: string;
+  borderColor: string;
+  features: string[];
+}
+
+interface Advantage {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: ColorKey;
+}
+
+interface TreatmentProcessStep {
+  step: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
 export default function RadiationOncologyPage() {
-  const radiationTechniques = [
+  const radiationTechniques: RadiationTechnique[] = [
     {
       icon: Layers,
       title: "3D-CRT",
@@ -71,9 +101,7 @@ export default function RadiationOncologyPage() {
     },
   ];
 
-  type ColorKey = "blue" | "teal" | "purple" | "pink";
-
-  const advantages: { icon: any; title: string; description: string; color: ColorKey }[] = [
+  const advantages: Advantage[] = [
     {
       icon: Crosshair,
       title: "Precision Targeting",
@@ -100,7 +128,7 @@ export default function RadiationOncologyPage() {
     },
   ];
 
-  const treatmentProcess = [
+  const treatmentProcess: TreatmentProcessStep[] = [
     {
       step: "01",
       title: "Consultation & Assessment",
@@ -127,7 +155,7 @@ export default function RadiationOncologyPage() {
     },
   ];
 
-  const colorMap = {
+  const colorMap: Record<ColorKey, { bg: string; text: string; gradient: string }> = {
     blue: {
       bg: "bg-blue-100",
       text: "text-blue-700",

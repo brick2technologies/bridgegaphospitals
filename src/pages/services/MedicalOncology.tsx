@@ -18,11 +18,42 @@ import {
   Sparkles,
   Brain,
   Microscope,
-  Zap,
+  type LucideIcon,
 } from "lucide-react";
 
+// === Type Definitions ===
+type ColorKey = "blue" | "purple" | "teal" | "pink";
+
+interface Therapy {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  gradient: string;
+  bgColor: string;
+  iconColor: string;
+  borderColor: string;
+}
+
+interface PersonalizedItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: ColorKey;
+}
+
+interface TreatmentCombination {
+  name: string;
+  icon: LucideIcon;
+}
+
+interface SupportService {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
 export default function MedicalOncologyPage() {
-  const therapies = [
+  const therapies: Therapy[] = [
     {
       icon: Pill,
       title: "Chemotherapy",
@@ -61,9 +92,7 @@ export default function MedicalOncologyPage() {
     },
   ];
 
-  type ColorKey = "blue" | "purple" | "teal" | "pink";
-
-  const personalizedApproach: { icon: any; title: string; description: string; color: ColorKey }[] = [
+  const personalizedApproach: PersonalizedItem[] = [
     {
       icon: Users,
       title: "Multidisciplinary Team",
@@ -90,7 +119,7 @@ export default function MedicalOncologyPage() {
     },
   ];
 
-  const treatmentCombinations = [
+  const treatmentCombinations: TreatmentCombination[] = [
     { name: "Surgery", icon: Stethoscope },
     { name: "Chemotherapy", icon: Pill },
     { name: "Radiotherapy", icon: Target },
@@ -98,7 +127,7 @@ export default function MedicalOncologyPage() {
     { name: "Immunotherapy", icon: Shield },
   ];
 
-  const supportServices = [
+  const supportServices: SupportService[] = [
     {
       icon: HeartPulse,
       title: "Pain Management",
@@ -121,7 +150,7 @@ export default function MedicalOncologyPage() {
     },
   ];
 
-  const colorMap = {
+  const colorMap: Record<ColorKey, { bg: string; text: string; gradient: string }> = {
     blue: {
       bg: "bg-blue-100",
       text: "text-blue-700",

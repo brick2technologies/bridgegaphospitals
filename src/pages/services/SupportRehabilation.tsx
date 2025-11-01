@@ -10,22 +10,53 @@ import {
   Shield,
   Activity,
   MessageCircle,
- 
   CheckCircle,
   Phone,
   Calendar,
   MapPin,
   Clock,
   HeartPulse,
-
   Stethoscope,
   Sun,
-
   Flower2,
+  type LucideIcon,
 } from "lucide-react";
 
+// === Type Definitions ===
+type ColorKey = "purple" | "blue" | "pink" | "teal";
+
+interface CoreService {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  gradient: string;
+  bgColor: string;
+  iconColor: string;
+  borderColor: string;
+  features: string[];
+}
+
+interface HolisticSupport {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: ColorKey;
+}
+
+interface NutritionJourney {
+  phase: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+interface PalliativeFocus {
+  icon: LucideIcon;
+  title: string;
+  items: string[];
+}
+
 export default function SupportiveCarePage() {
-  const coreServices = [
+  const coreServices: CoreService[] = [
     {
       icon: Apple,
       title: "Nutritional Counseling",
@@ -58,7 +89,7 @@ export default function SupportiveCarePage() {
     },
   ];
 
-  const holisticSupport = [
+  const holisticSupport: HolisticSupport[] = [
     {
       icon: Brain,
       title: "Psychological Well-being",
@@ -85,7 +116,7 @@ export default function SupportiveCarePage() {
     },
   ];
 
-  const nutritionJourney = [
+  const nutritionJourney: NutritionJourney[] = [
     {
       phase: "Diagnosis",
       icon: Stethoscope,
@@ -108,7 +139,7 @@ export default function SupportiveCarePage() {
     },
   ];
 
-  const palliativeFocus = [
+  const palliativeFocus: PalliativeFocus[] = [
     {
       icon: Shield,
       title: "Pain Management",
@@ -131,7 +162,7 @@ export default function SupportiveCarePage() {
     },
   ];
 
-  const colorMap = {
+  const colorMap: Record<ColorKey, { bg: string; text: string; gradient: string }> = {
     purple: {
       bg: "bg-purple-100",
       text: "text-purple-700",
@@ -156,9 +187,8 @@ export default function SupportiveCarePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-pink-50 pt-20">
-      {/* Hero Section - New Design */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-orange-50">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-72 h-72 bg-pink-300 rounded-full blur-3xl animate-pulse" />

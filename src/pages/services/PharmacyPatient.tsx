@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import {
   Shield,
   Clock,
@@ -20,7 +20,21 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-function AnimatedCard({ children, delay = 0, className = "" }) {
+// === Prop Types ===
+interface AnimatedCardProps {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+interface FloatingCardProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}
+
+// === AnimatedCard Component ===
+function AnimatedCard({ children, delay = 0, className = "" }: AnimatedCardProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -39,7 +53,8 @@ function AnimatedCard({ children, delay = 0, className = "" }) {
   );
 }
 
-function FloatingCard({ children, className = "", delay = 0 }) {
+// === FloatingCard Component ===
+function FloatingCard({ children, className = "", delay = 0 }: FloatingCardProps) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -54,19 +69,21 @@ function FloatingCard({ children, className = "", delay = 0 }) {
   return (
     <div
       className={className}
-      style={{ transform: `translateY(${translateY}px)`, transition: 'transform 0.1s linear' }}
+      style={{ transform: `translateY(${translateY}px)`, transition: "transform 0.1s linear" }}
     >
       {children}
     </div>
   );
 }
 
+// === Main Component ===
 export default function PharmacyInPatientPage() {
   const coreServices = [
     {
       icon: Pill,
       title: "Pharmacy Services",
-      description: "Comprehensive medication management with strict safety protocols, ensuring every prescription is accurately dispensed and monitored by qualified oncologists and pharmacists.",
+      description:
+        "Comprehensive medication management with strict safety protocols, ensuring every prescription is accurately dispensed and monitored by qualified oncologists and pharmacists.",
       bgColor: "bg-blue-100",
       iconColor: "text-blue-700",
       borderColor: "border-blue-200",
@@ -80,7 +97,8 @@ export default function PharmacyInPatientPage() {
     {
       icon: BedDouble,
       title: "In-Patient Care",
-      description: "Round-the-clock medical and nursing care with continuous monitoring for treatment response, side effects, and patient comfort throughout the hospital stay.",
+      description:
+        "Round-the-clock medical and nursing care with continuous monitoring for treatment response, side effects, and patient comfort throughout the hospital stay.",
       bgColor: "bg-purple-100",
       iconColor: "text-purple-700",
       borderColor: "border-purple-200",
@@ -174,8 +192,14 @@ export default function PharmacyInPatientPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-            <div className="absolute top-40 right-20 w-64 h-64 bg-pink-200 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+            <div
+              className="absolute bottom-20 right-10 w-96 h-96 bg-purple-300 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "1s" }}
+            />
+            <div
+              className="absolute top-40 right-20 w-64 h-64 bg-pink-200 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "2s" }}
+            />
           </div>
         </div>
 
@@ -196,7 +220,7 @@ export default function PharmacyInPatientPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed">
-                Ensuring medication safety and comprehensive in-patient support with strict protocols, 
+                Ensuring medication safety and comprehensive in-patient support with strict protocols,
                 expert supervision, and round-the-clock care throughout your hospital stay.
               </p>
 
@@ -266,14 +290,14 @@ export default function PharmacyInPatientPage() {
                   Safety & Support Throughout Your Stay
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-                  At Indur Cancer Hospital, medication safety and in-patient support are top priorities, 
+                  At Indur Cancer Hospital, medication safety and in-patient support are top priorities,
                   ensuring every patient receives accurate and safe treatment throughout their hospital stay.
                 </p>
                 <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
-                  All medications are prescribed, dispensed, and administered under strict supervision by 
-                  qualified oncologists, pharmacists, and trained nursing staff, following standardized 
-                  safety protocols to prevent errors and drug interactions. Supportive services enhance 
-                  patient comfort and recovery, reflecting our commitment to holistic, safe, and 
+                  All medications are prescribed, dispensed, and administered under strict supervision by
+                  qualified oncologists, pharmacists, and trained nursing staff, following standardized
+                  safety protocols to prevent errors and drug interactions. Supportive services enhance
+                  patient comfort and recovery, reflecting our commitment to holistic, safe, and
                   compassionate cancer care.
                 </p>
               </div>
@@ -305,22 +329,23 @@ export default function PharmacyInPatientPage() {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
                     <div className="lg:col-span-3 flex flex-col sm:flex-row items-start gap-4">
-                      <div className={`w-14 h-14 sm:w-16 sm:h-16 ${service.bgColor} rounded-2xl flex items-center justify-center flex-shrink-0`}>
+                      <div
+                        className={`w-14 h-14 sm:w-16 sm:h-16 ${service.bgColor} rounded-2xl flex items-center justify-center flex-shrink-0`}
+                      >
                         <Icon className={`w-7 h-7 sm:w-8 sm:h-8 ${service.iconColor}`} strokeWidth={2.5} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                          {service.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                          {service.description}
-                        </p>
+                        <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
                       </div>
                     </div>
 
                     <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                       {service.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <div
+                          key={i}
+                          className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                        >
                           <CheckCircle className={`w-5 h-5 ${service.iconColor} flex-shrink-0 mt-0.5`} />
                           <span className="text-sm text-gray-700">{feature}</span>
                         </div>
@@ -355,12 +380,12 @@ export default function PharmacyInPatientPage() {
                   delay={index * 100}
                   className="bg-white rounded-2xl sm:rounded-3xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
                 >
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${protocol.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                  <div
+                    className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${protocol.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4`}
+                  >
                     <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
-                    {protocol.title}
-                  </h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">{protocol.title}</h3>
                   <p className="text-sm sm:text-base text-gray-600 text-center">{protocol.description}</p>
                 </AnimatedCard>
               );
@@ -385,11 +410,7 @@ export default function PharmacyInPatientPage() {
             {medicationProcess.map((stage, index) => {
               const Icon = stage.icon;
               return (
-                <AnimatedCard
-                  key={stage.phase}
-                  delay={index * 100}
-                  className="relative"
-                >
+                <AnimatedCard key={stage.phase} delay={index * 100} className="relative">
                   <div className="bg-white rounded-2xl sm:rounded-3xl p-6 shadow-lg h-full hover:shadow-xl transition-shadow">
                     <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full text-white font-bold text-xl mb-4 mx-auto">
                       {index + 1}
@@ -397,12 +418,8 @@ export default function PharmacyInPatientPage() {
                     <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-6 h-6 text-blue-700" strokeWidth={2.5} />
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">
-                      {stage.phase}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 text-center">
-                      {stage.description}
-                    </p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 text-center">{stage.phase}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 text-center">{stage.description}</p>
                   </div>
                   {index < medicationProcess.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600" />
@@ -438,9 +455,7 @@ export default function PharmacyInPatientPage() {
                   <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-4 mx-auto">
                     <Icon className="w-7 h-7 text-white" strokeWidth={2.5} />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">
-                    {service.title}
-                  </h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 text-center">{service.title}</h3>
                   <ul className="space-y-2">
                     {service.items.map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
