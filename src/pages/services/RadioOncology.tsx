@@ -19,6 +19,8 @@ import {
   Brain,
   type LucideIcon,
 } from "lucide-react";
+import { useState } from "react";
+import Modal from "../../components/Modal";
 
 // === Type Definitions ===
 type ColorKey = "blue" | "teal" | "purple" | "pink";
@@ -50,6 +52,7 @@ interface TreatmentProcessStep {
 }
 
 export default function RadiationOncologyPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const radiationTechniques: RadiationTechnique[] = [
     {
       icon: Layers,
@@ -179,6 +182,7 @@ export default function RadiationOncologyPage() {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-pink-50 pt-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -226,19 +230,21 @@ export default function RadiationOncologyPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#E92393] to-purple-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
+                   onClick={() => setIsModalOpen(true)}
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Book Consultation</span>
                 </motion.button>
 
-                <motion.button
+                <motion.a
+                 href="tel:+918688277183"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all border-2 border-gray-200"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call Us</span>
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
 
@@ -519,19 +525,21 @@ export default function RadiationOncologyPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <motion.button
+                <motion.a
+                  href="tel:+918688277183"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#E92393] rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Call Now</span>
-                </motion.button>
+                </motion.a>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all"
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <Calendar className="w-5 h-5" />
                   <span>Schedule Visit</span>
@@ -559,5 +567,8 @@ export default function RadiationOncologyPage() {
         </div>
       </section>
     </div>
+
+    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} type="appointment" />
+    </>
   );
 }

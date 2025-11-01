@@ -20,6 +20,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+import Modal from "../../components/Modal"; 
+
 // === Prop Types ===
 interface AnimatedCardProps {
   children: ReactNode;
@@ -78,6 +80,7 @@ function FloatingCard({ children, className = "", delay = 0 }: FloatingCardProps
 
 // === Main Component ===
 export default function PharmacyInPatientPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const coreServices = [
     {
       icon: Pill,
@@ -185,6 +188,7 @@ export default function PharmacyInPatientPage() {
   ];
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-purple-50 pt-20">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -225,15 +229,17 @@ export default function PharmacyInPatientPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-600 to-blue-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95">
+                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pink-600 to-blue-600 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
+                onClick={() => setIsModalOpen(true)}
+                >
                   <Calendar className="w-5 h-5" />
                   <span>Book Admission</span>
                 </button>
 
-                <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all border-2 border-gray-200 hover:scale-105 active:scale-95">
+                <a  href="tel:+918688277183" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all border-2 border-gray-200 hover:scale-105 active:scale-95">
                   <Phone className="w-5 h-5" />
                   <span>Contact Us</span>
-                </button>
+                </a>
               </div>
             </AnimatedCard>
 
@@ -489,12 +495,13 @@ export default function PharmacyInPatientPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-pink-600 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95">
+                <a href="tel:+918688277183" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-pink-600 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95">
                   <Phone className="w-5 h-5" />
                   <span>Call Now</span>
-                </button>
+                </a>
 
-                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all hover:scale-105 active:scale-95">
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all hover:scale-105 active:scale-95"
+                onClick={() => setIsModalOpen(true)} >
                   <Calendar className="w-5 h-5" />
                   <span>Schedule Visit</span>
                 </button>
@@ -521,5 +528,7 @@ export default function PharmacyInPatientPage() {
         </div>
       </section>
     </div>
+    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} type="appointment" />
+    </>
   );
 }
