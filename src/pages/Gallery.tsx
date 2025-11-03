@@ -1,535 +1,279 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Users,
-  Award,
-  Calendar,
-  Building2,
-  Camera,
-  Grid3x3,
-  ZoomIn,
-  X,
-  type LucideIcon,
-} from 'lucide-react';
+import { Hospital, Activity, X, ChevronDown, Heart, Building2 } from 'lucide-react';
 
-/* -------------------------------------------------------------------------- */
-/* Types                                                                     */
-/* -------------------------------------------------------------------------- */
-interface GalleryItem {
+interface GalleryImage {
   id: number;
-  category: string;
-  title: string;
-  description: string;
+  event: 'Hospital' | 'icu' | 'run';
   image: string;
-  gradient: string;
-  bgColor: string;
-  borderColor: string;
-  date: string;
 }
 
-interface Category {
-  id: string;
-  name: string;
-  icon: LucideIcon;
-}
+export default function FocusedGalleryPage() {
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
-/* -------------------------------------------------------------------------- */
-/* Skeleton Component                                                        */
-/* -------------------------------------------------------------------------- */
-function GallerySkeleton() {
-  return (
-    <div className="group relative cursor-pointer animate-pulse">
-      <div className="relative h-80 bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gray-200">
-        <div className="h-full bg-gray-300" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-          <div className="h-4 bg-gray-300 rounded w-1/2 mb-2" />
-          <div className="h-6 bg-gray-300 rounded w-3/4 mb-2" />
-          <div className="h-4 bg-gray-300 rounded w-full" />
-        </div>
-      </div>
-    </div>
-  );
-}
+  const images: GalleryImage[] = [
+    // Hospital Images
+    { id: 1, event: 'Hospital', image: '/Hopsital-01.jpg' }, // Fixed typo
+    { id: 2, event: 'Hospital', image: '/Hospital-02.jpg' },
+    { id: 3, event: 'Hospital', image: '/Hospital-03.jpg' },
+    { id: 4, event: 'Hospital', image: '/Hospital-04.jpg' },
+    { id: 5, event: 'Hospital', image: '/Hopsital-05.jpg' },
+    { id: 6, event: "Hospital", image: '/Hospital-06.jpg' },
 
-/* -------------------------------------------------------------------------- */
-/* Component                                                                 */
-/* -------------------------------------------------------------------------- */
-export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+    // ICU Beds Launch
+    { id: 7, event: 'icu',  image: 'Bed-launch-1.jpg' },
+    { id: 8, event: 'icu',  image: 'bed-launch-2.jpg' },
+    { id: 9, event: 'icu',  image: 'bed-launch-3.jpg' },
+    { id: 10, event: 'icu', image: 'bed-launch-4.jpg' },
+    { id: 11, event: 'icu', image: 'bed-launch-5.jpg' },
+    { id: 12, event: 'icu', image: 'bed-launch-6.jpg' },
+    { id: 13, event: 'icu', image: 'bed-launch-7.jpg' },
+    { id: 14, event: 'icu', image: 'bed-launch-8.jpg' },
+    { id: 15, event: 'icu', image: 'bed-launch-9.jpg' },
+    { id: 16, event: 'icu', image: 'bed-launch-10.jpg' },
+    { id: 17, event: 'icu', image: 'bed-launch-11.jpg' },
+    { id: 18, event: 'icu', image: 'bed-launch-12.jpg' },
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 400);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Close modal with Escape key
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelectedImage(null);
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, []);
-
-  const categories: Category[] = [
-    { id: 'all', name: 'All Gallery', icon: Grid3x3 },
-    { id: 'activities', name: 'Activities', icon: Calendar },
-    { id: 'community', name: 'Community Services', icon: Users },
-    { id: 'events', name: 'Events', icon: Award },
-    { id: 'facilities', name: 'Facilities', icon: Building2 },
+    // Cancer Run 2023
+    { id: 19, event: 'run', image: 'cancer-run-01.jpg' },
+    { id: 20, event: 'run', image: 'cancer-run-02.jpg' },
+    { id: 21, event: 'run', image: 'cancer-run-03.jpg' },
+    { id: 22, event: 'run', image: 'cancer-run-04.jpg' },
+    { id: 23, event: 'run', image: 'cancer-run-05.jpg' },
+    { id: 24, event: 'run', image: 'cancer-run-06.jpg' },
+    
   ];
 
-  const galleryItems: GalleryItem[] = [
-    {
-      id: 1,
-      category: 'activities',
-      title: 'Health Awareness Camp',
-      description: 'Free cancer screening and awareness program',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-600',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'March 2024',
-    },
-    {
-      id: 2,
-      category: 'activities',
-      title: 'Patient Support Session',
-      description: 'Group therapy and wellness activities',
-      image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-700',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'February 2024',
-    },
-    {
-      id: 3,
-      category: 'activities',
-      title: 'Yoga & Meditation',
-      description: 'Holistic healing sessions for patients',
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-500',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'January 2024',
-    },
-    {
-      id: 4,
-      category: 'activities',
-      title: 'Art Therapy Workshop',
-      description: 'Creative expression for healing',
-      image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-600',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'March 2024',
-    },
-    {
-      id: 5,
-      category: 'community',
-      title: 'Free Medical Camp',
-      description: 'Serving underprivileged communities',
-      image: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-600',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'April 2024',
-    },
-    {
-      id: 6,
-      category: 'community',
-      title: 'Rural Outreach Program',
-      description: 'Bringing healthcare to remote areas',
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-700',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'March 2024',
-    },
-    {
-      id: 7,
-      category: 'community',
-      title: 'Blood Donation Drive',
-      description: 'Community coming together to save lives',
-      image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-500',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'February 2024',
-    },
-    {
-      id: 8,
-      category: 'community',
-      title: 'School Health Program',
-      description: 'Educating young minds about health',
-      image: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-600',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'April 2024',
-    },
-    {
-      id: 9,
-      category: 'events',
-      title: 'World Cancer Day',
-      description: 'Annual awareness celebration',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-600',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'February 2024',
-    },
-    {
-      id: 10,
-      category: 'events',
-      title: 'Survivor Stories Event',
-      description: 'Celebrating courage and hope',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-700',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'March 2024',
-    },
-    {
-      id: 11,
-      category: 'events',
-      title: 'Annual Fundraiser Gala',
-      description: 'Supporting cancer research and treatment',
-      image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-500',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'January 2024',
-    },
-    {
-      id: 12,
-      category: 'events',
-      title: 'Medical Conference 2024',
-      description: 'Latest advances in oncology',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-600',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'April 2024',
-    },
-    {
-      id: 13,
-      category: 'facilities',
-      title: 'Modern Radiation Therapy Unit',
-      description: 'State-of-the-art LINAC technology',
-      image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-600',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'Facility',
-    },
-    {
-      id: 14,
-      category: 'facilities',
-      title: 'Advanced Diagnostic Center',
-      description: 'CT Scan and imaging services',
-      image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-700',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'Facility',
-    },
-    {
-      id: 15,
-      category: 'facilities',
-      title: 'Chemotherapy Suite',
-      description: 'Comfortable treatment environment',
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop',
-      gradient: 'from-[#E92393] to-pink-500',
-      bgColor: 'bg-pink-100',
-      borderColor: 'border-pink-300',
-      date: 'Facility',
-    },
-    {
-      id: 16,
-      category: 'facilities',
-      title: 'Patient Care Rooms',
-      description: 'Modern and comfortable recovery spaces',
-      image: 'https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=800&h=600&fit=crop',
-      gradient: 'from-[#005AA9] to-blue-600',
-      bgColor: 'bg-blue-100',
-      borderColor: 'border-blue-300',
-      date: 'Facility',
-    },
-  ];
-
-  const filteredItems =
-    activeCategory === 'all'
-      ? galleryItems
-      : galleryItems.filter((i) => i.category === activeCategory);
+  const hospitalImages = images.filter(i => i.event === 'Hospital');
+  const icuImages = images.filter(i => i.event === 'icu');
+  const runImages = images.filter(i => i.event === 'run');
 
   return (
     <>
-      {/* SEO + Structured Data */}
       <Helmet>
-        <title>Gallery | Bridge Gap Hospital - Cancer Care Moments</title>
+        <title>Gallery | Bridge Gap Hospital - ICU, Hospital & Cancer Run 2023</title>
         <meta
           name="description"
-          content="Explore our cancer care journey: health camps, community outreach, modern facilities, and patient support activities in Nizamabad."
+          content="Explore our hospital, ICU beds launch, and Cancer Run 2023 – moments of care, innovation, and community."
         />
-        <meta name="keywords" content="cancer hospital gallery, health camps, community service, oncology facilities, patient activities" />
-        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://bridgegaphospitals.com/gallery" />
-
-        <meta property="og:title" content="Gallery - Bridge Gap Hospital" />
-        <meta property="og:description" content="Moments of care, compassion, and community in the fight against cancer." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bridgegaphospitals.com/gallery" />
-        <meta property="og:image" content="https://bridgegaphospitals.com/og-gallery.jpg" />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ImageGallery",
-            "name": "Bridge Gap Hospital Gallery",
-            "description": "Photo gallery of cancer care activities, facilities, and community outreach.",
-            "image": galleryItems.map(item => ({
-              "@type": "ImageObject",
-              "url": item.image,
-              "name": item.title,
-              "description": item.description
-            }))
-          })}
-        </script>
       </Helmet>
 
-      <div
-        className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden mt-6"
-        role="main"
-        aria-labelledby="gallery-title"
-      >
-        {/* Background Decorations */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-pink-300/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
+      <div className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white overflow-hidden top-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100/30 via-blue-50 to-purple-100/20" />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20">
-          {/* Header */}
+        <div className="relative max-w-7xl mx-auto px-6 py-16 lg:px-8">
+          {/* Main Title */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#E92393] to-purple-600 text-white shadow-lg mb-6"
-            >
-              <Camera className="w-5 h-5" aria-hidden="true" />
-              <span className="text-sm font-bold">About Us</span>
-            </motion.div>
-
-            <h1
-              id="gallery-title"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-            >
-              Moments of Care
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-blue-600 text-white font-bold text-xs mb-5 shadow-lg">
+              <Heart className="w-4 h-4" />
+              <span>Milestone Moments</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-5">
+              Our Journey
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E92393] via-[#005AA9] to-[#E92393]">
-                & Compassion
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-blue-600 to-pink-600">
+                In Pictures
               </span>
             </h1>
-
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto font-medium">
-              Explore our journey of healing, community service, and state-of-the-art facilities dedicated to fighting cancer together.
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+              Hospital, ICU Launch & Cancer Run 2023 – A visual story of care and impact.
             </p>
           </motion.div>
 
-          {/* Category Filter */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
-            role="tablist"
-            aria-label="Gallery categories"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="flex justify-center mb-10"
           >
-            {categories.map((cat) => {
-              const Icon = cat.icon;
-              const isActive = activeCategory === cat.id;
-              return (
-                <motion.button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  onKeyDown={(e) => e.key === 'Enter' && setActiveCategory(cat.id)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-controls={`panel-${cat.id}`}
-                  tabIndex={0}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple-400 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-[#E92393] to-[#005AA9] text-white shadow-lg'
-                      : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-[#E92393]'
-                  }`}
-                >
-                  <Icon className="w-5 h-5" aria-hidden="true" />
-                  <span>{cat.name}</span>
-                </motion.button>
-              );
-            })}
+            <ChevronDown className="w-7 h-7 text-pink-500 animate-bounce" />
           </motion.div>
 
-          {/* Gallery Grid */}
-          <AnimatePresence mode="wait">
+          {/* Hospital Section */}
+          <section className="mb-20">
             <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              role="tabpanel"
-              id={`panel-${activeCategory}`}
-              aria-labelledby={`tab-${activeCategory}`}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-10"
             >
-              {isLoading
-                ? Array(8).fill(0).map((_, i) => <GallerySkeleton key={i} />)
-                : filteredItems.map((item, idx) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: idx * 0.05 }}
-                      whileHover={{ y: -10 }}
-                      onClick={() => setSelectedImage(item)}
-                      onKeyDown={(e) => e.key === 'Enter' && setSelectedImage(item)}
-                      className="group relative cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#E92393] rounded-2xl"
-                      role="button"
-                      tabIndex={0}
-                      aria-label={`View image: ${item.title}`}
-                    >
-                      <div
-                        className={`relative h-80 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 ${item.borderColor}`}
-                      >
-                        {/* Image */}
-                        <div className="relative h-full overflow-hidden">
-                          <img
-                            src={item.image}
-                            alt={`${item.title} - ${item.description}`}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            loading="lazy"
-                            width={800}
-                            height={600}
-                          />
-                          <div
-                            className={`absolute inset-0 bg-gradient-to-t ${item.gradient} opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none`}
-                          />
-                          <div
-                            className={`absolute top-4 right-4 w-10 h-10 ${item.bgColor} rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110`}
-                          >
-                            <ZoomIn className="w-5 h-5 text-[#E92393]" aria-hidden="true" />
-                          </div>
-                        </div>
-
-                        {/* Content overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                          <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <p className="text-xs font-bold text-white/80 mb-2">{item.date}</p>
-                            <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                            <p className="text-sm text-white/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Image Modal */}
-          <AnimatePresence>
-            {selectedImage && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedImage(null)}
-                className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="modal-title"
-              >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  onClick={(e) => e.stopPropagation()}
-                  className="relative max-w-5xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl"
-                >
-                  <button
-                    onClick={() => setSelectedImage(null)}
-                    className="absolute top-4 right-4 z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50"
-                    aria-label="Close image modal"
-                  >
-                    <X className="w-6 h-6 text-gray-700" />
-                  </button>
-
-                  <div className="relative">
-                    <img
-                      src={selectedImage.image}
-                      alt={selectedImage.title}
-                      className="w-full h-auto max-h-[70vh] object-contain"
-                      loading="eager"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
-                      <p className="text-sm font-bold text-white/80 mb-2">{selectedImage.date}</p>
-                      <h2 id="modal-title" className="text-3xl font-bold text-white mb-3">
-                        {selectedImage.title}
-                      </h2>
-                      <p className="text-lg text-white/90">{selectedImage.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Stats Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-20"
-          >
-            <div className="bg-gradient-to-r from-[#E92393] via-[#005AA9] to-[#E92393] rounded-3xl p-12 shadow-2xl">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">500+</div>
-                  <div className="text-white/90 font-medium">Community Events</div>
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="p-2.5 bg-emerald-100 rounded-lg">
+                  <Building2 className="w-7 h-7 text-emerald-600" />
                 </div>
                 <div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">50K+</div>
-                  <div className="text-white/90 font-medium">Lives Touched</div>
-                </div>
-                <div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">100+</div>
-                  <div className="text-white/90 font-medium">Health Camps</div>
-                </div>
-                <div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">24/7</div>
-                  <div className="text-white/90 font-medium">Care & Support</div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Our Hospital</h2>
+                  <p className="text-sm md:text-base text-gray-600">State-of-the-Art Cancer Care Facility</p>
                 </div>
               </div>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 md:gap-5">
+              {hospitalImages.map((img, idx) => (
+                <ImageCard key={img.id} image={img} index={idx} onClick={() => setSelectedImage(img)} />
+              ))}
+            </div>
+          </section>
+
+          {/* ICU Launch Section */}
+          <section className="mb-20">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-10"
+            >
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="p-2.5 bg-pink-100 rounded-lg">
+                  <Hospital className="w-7 h-7 text-pink-600" />
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">ICU Beds Launch</h2>
+                  <p className="text-sm md:text-base text-gray-600">Advanced Critical Care Unit • 2023</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 md:gap-5">
+              {icuImages.map((img, idx) => (
+                <ImageCard key={img.id} image={img} index={idx + 4} onClick={() => setSelectedImage(img)} />
+              ))}
+            </div>
+          </section>
+
+          {/* Cancer Run 2023 Section */}
+          <section className="mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mb-10"
+            >
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="p-2.5 bg-blue-100 rounded-lg">
+                  <Activity className="w-7 h-7 text-blue-600" />
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Cancer Run 2023</h2>
+                  <p className="text-sm md:text-base text-gray-600">5,000+ Runners • Unity in Motion</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 md:gap-5">
+              {runImages.map((img, idx) => (
+                <ImageCard key={img.id} image={img} index={idx + 8} onClick={() => setSelectedImage(img)} />
+              ))}
+            </div>
+          </section>
+
+          {/* CTA Footer */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center py-14"
+          >
+            <div className="bg-gradient-to-r from-pink-600 to-blue-600 rounded-3xl p-8 shadow-2xl text-white">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Be Part of the Next Chapter</h3>
+              <p className="text-sm md:text-base mb-7 max-w-xl mx-auto">
+                Join us in the fight against cancer. Every step, every donation, every moment counts.
+              </p>
+              <button className="px-7 py-3.5 bg-white text-pink-600 font-bold rounded-full hover:bg-gray-100 transition shadow-md text-sm">
+                Support Our Mission
+              </button>
             </div>
           </motion.div>
         </div>
+
+        {/* Lightbox */}
+        <AnimatePresence>
+          {selectedImage && (
+            <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
+          )}
+        </AnimatePresence>
       </div>
     </>
+  );
+}
+
+// Image Card
+function ImageCard({ image, index, onClick }: { image: GalleryImage; index: number; onClick: () => void }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08 }}
+      onClick={onClick}
+      className="group relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && onClick()}
+    >
+      <img
+        src={image.image}
+        alt=""
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <svg className="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+    </motion.div>
+  );
+}
+
+// Lightbox
+function Lightbox({ image, onClose }: { image: GalleryImage; onClose: () => void }) {
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 md:p-8 backdrop-blur-sm"
+    >
+      <motion.div
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.9 }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-w-5xl w-full"
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 md:top-3 md:-right-14 p-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur transition"
+          aria-label="Close"
+        >
+          <X className="w-7 h-7 text-white" />
+        </button>
+
+        <img
+          src={image.image}
+          alt=""
+          className="w-full h-auto max-h-[85vh] object-contain rounded-xl shadow-2xl"
+        />
+      </motion.div>
+    </motion.div>
   );
 }

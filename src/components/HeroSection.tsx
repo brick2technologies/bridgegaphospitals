@@ -265,7 +265,7 @@ export default function HeroSection() {
                 { number: "3000+", label: "Surgical Oncology Patients" },
                 { number: "9000+", label: "Medical Oncology Patients" },
                 { number: "8000+", label: "Radiation Oncology Patients" },
-                { number: "15000+", label: "Patients Treated" },
+                { number: "20000+", label: "Patients Treated" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
