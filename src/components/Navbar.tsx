@@ -123,8 +123,8 @@ export default function Navbar() {
                 <img
                   src="/logo2.png"
                   alt="Bridge Gap Hospitals logo"
-                  className="h-12 sm:h-14 lg:h-16 xl:h-18 w-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
-                  width="200"
+                  className="h-[5rem] sm:h-20 lg:h-20 xl:h-24 w-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-200"
+                  width="300"
                   height="72"
                   loading="eager"
                   fetchPriority="high"

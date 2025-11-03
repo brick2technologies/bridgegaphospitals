@@ -49,8 +49,10 @@ export default function AboutSection() {
             About the Hospital
           </h2>
           <h3 className="text-xl md:text-2xl font-semibold text-[#005AA9] mb-6 leading-snug">
-            Indur Cancer Hospital – Comprehensive and Affordable Cancer Care
+            Bridge Gap Hospitals (Indur Cancer Care) – The Only Cancer Hospital Serving Northern Telangana
           </h3>
+
+
 
           <p className="text-gray-700 leading-relaxed mb-4">
             Indur Cancer Hospital is a dedicated center for complete cancer care,

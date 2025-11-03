@@ -1,52 +1,64 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, easeInOut } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, ArrowRight, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import Modal from "./Modal";
 
-type ModalType = "appointment" | "second-opinion" | null;
+
 
 export default function HeroSection() {
   const navigate = useNavigate();
-
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [modalType, setModalType] = useState<ModalType>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const openModal = (type: ModalType) => setModalType(type);
-  const closeModal = () => setModalType(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  
 
   const slides = [
     {
-      title: "More Cancer Expertise.",
-      subtitle: "More Hope.",
+      title: "Bridge Gap Hospitals",
+      subtitle: "Your All-Inclusive Cancer Care Companion",
+      highlights: [
+        "One and Only comprehensive cancer care hospital in Northern Telangana",
+        "The First Cancer Specialty Hospital in Northern Telangana",
+        "The First advanced linear accelerator machine in  Northern Telangana",
+      ],
       description:
         "Best Comprehensive Cancer Care in Nizamabad. Personalized treatment for all cancers with care, compassion, and advanced expertise.",
       image:
         "https://res.cloudinary.com/di1bfo7ma/image/upload/v1761731822/hero-cancer-care_sfynem.png",
       color: "#E92393",
-      learnMorePath: "/about",
+      learnMorePath: "/services",
+      ctaText: "Explore Services",
     },
     {
       title: "Advanced Technology.",
       subtitle: "Better Outcomes.",
+      highlights: [
+        "Latest diagnostic tools and imaging technology",
+        "Precision radiation therapy with minimal side effects",
+      ],
       description:
         "State-of-the-art facilities and cutting-edge treatment methods ensuring the highest quality cancer care for every patient.",
       image:
         "https://res.cloudinary.com/di1bfo7ma/image/upload/v1761731822/Advanced-technology_dxl430.png",
       color: "#005AA9",
       learnMorePath: "/services/diagnostics",
+      ctaText: "Explore Technology",
     },
     {
       title: "Compassionate Care.",
       subtitle: "Every Step.",
+      highlights: [
+        "24/7 patient support and counseling",
+        "Holistic care including nutrition and mental health",
+      ],
       description:
         "Our dedicated team of oncologists and healthcare professionals guide you through your journey with empathy and expertise.",
       image:
         "https://res.cloudinary.com/di1bfo7ma/image/upload/v1761731818/hero-care_jgaxfw.png",
       color: "linear-gradient(90deg, #E92393, #005AA9)",
       learnMorePath: "/services/supportive-care",
+      ctaText: "Learn About Care",
     },
   ];
 
@@ -62,82 +74,87 @@ export default function HeroSection() {
         })
     );
     Promise.all(promises).then(() => setImagesLoaded(true));
-  },);
+  }, []);
 
-  // Auto-slide
-  useEffect(() => {
-    if (!imagesLoaded) return;
-    const id = setInterval(() => {
-      setCurrentSlide((i) => (i + 1) % slides.length);
-    }, 6000);
-    autoSlideRef.current = id;
-    return () => clearInterval(id);
-  }, [imagesLoaded, slides.length]);
+  // Navigation
+  const goToPrev = () => setCurrentSlide((i) => (i - 1 + slides.length) % slides.length);
+  const goToNext = () => setCurrentSlide((i) => (i + 1) % slides.length);
+  const goToSlide = (idx: number) => setCurrentSlide(idx);
 
-  const handleSlideChange = (idx: number) => {
-    setCurrentSlide(idx);
-    if (autoSlideRef.current) clearInterval(autoSlideRef.current);
-    const id = setInterval(() => {
-      setCurrentSlide((i) => (i + 1) % slides.length);
-    }, 6000);
-    autoSlideRef.current = id;
-  };
-
-  // Keyboard navigation
+  // Keyboard
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft")
-        setCurrentSlide((i) => (i - 1 + slides.length) % slides.length);
-      if (e.key === "ArrowRight")
-        setCurrentSlide((i) => (i + 1) % slides.length);
+      if (e.key === "ArrowLeft") goToPrev();
+      if (e.key === "ArrowRight") goToNext();
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [slides.length]);
+  }, []);
 
   const cur = slides[currentSlide];
 
   return (
     <>
-      {/* HERO SECTION */}
       <section
         id="home"
-        className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-blue-50 overflow-hidden"
-        aria-label="Hero section with cancer care information"
+        className="relative w-full min-h-screen bg-gradient-to-br from-white via-pink-50 to-blue-50 overflow-hidden pt-10"
+        aria-label="Hero section"
       >
-        {/* Background Circles */}
+        {/* Background Blobs (Full Width) */}
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: easeInOut }}
-          className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none hidden md:block"
           style={{ background: `${cur.color}25` }}
           aria-hidden="true"
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 10, repeat: Infinity, ease: easeInOut }}
-          className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-[#005AA9]/20 rounded-full blur-3xl pointer-events-none"
+          transition={{ duration: 12, repeat: Infinity }}
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#005AA9]/20 rounded-full blur-3xl pointer-events-none hidden md:block"
           aria-hidden="true"
         />
 
-        {/* Main Content */}
-        <div className="relative w-full px-6 md:px-12 lg:px-16 pt-20 pb-16 lg:pb-8 z-10">
+        {/* Main Content - CENTERED, NOT FULL WIDTH */}
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-20 md:pt-24 pb-8 z-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16 max-w-full"
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col lg:flex-row items-center gap-6 lg:gap-10"
             >
-              {/* Text */}
-              <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+              {/* MOBILE: Image First */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="flex-1 flex justify-center lg:hidden w-full max-w-xs sm:max-w-sm"
+              >
+                <div className="relative w-full aspect-square">
+                  <img
+                    src={cur.image}
+                    alt={`${cur.title} - ${cur.subtitle}`}
+                    className="w-full h-full object-contain drop-shadow-xl"
+                    loading="eager"
+                    style={{
+                      opacity: imagesLoaded ? 1 : 0,
+                      transition: "opacity 0.4s ease-in-out",
+                    }}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Text Block */}
+              <div className="flex-1 text-center lg:text-left max-w-xl">
+                {/* Title */}
                 <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight"
                 >
                   <span
                     style={{
@@ -153,62 +170,65 @@ export default function HeroSection() {
                   <span className="text-gray-900">{cur.subtitle}</span>
                 </motion.h1>
 
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                {/* Highlights - ABOVE Description */}
+                <motion.ul
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed"
+                  className="mt-5 space-y-1.5 text-left max-w-md mx-auto lg:mx-0"
+                >
+                  {cur.highlights.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700">
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-xs sm:text-sm md:text-base">{point}</span>
+                    </li>
+                  ))}
+                </motion.ul>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed"
                 >
                   {cur.description}
                 </motion.p>
 
-                {/* BUTTONS – Responsive, no overlap */}
+                {/* Buttons */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+                  className="mt-6 flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start"
                 >
                   <button
-                    className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white text-lg font-semibold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300"
+                    className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 text-white text-sm sm:text-base font-semibold px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-pink-300"
                     style={{ background: cur.color }}
-                    onClick={() => openModal("appointment")}
-                    aria-label="Book an appointment"
-                  >
-                    Book Appointment
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-
-                  <button
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-gray-800 text-lg font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
                     onClick={() => navigate(cur.learnMorePath)}
-                    aria-label="Learn more about our services"
+                    aria-label={cur.ctaText}
                   >
-                    Learn More
+                    {cur.ctaText}
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </motion.div>
 
-                {/* Slide Dots */}
-                <div
-                  className="flex gap-3 mt-10 justify-center lg:justify-start"
-                  role="group"
-                  aria-label="Slide navigation"
-                >
+                {/* Dots */}
+                <div className="flex gap-1.5 mt-6 justify-center lg:justify-start">
                   {slides.map((_, i) => (
                     <button
                       key={i}
-                      onClick={() => handleSlideChange(i)}
-                      className="transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
+                      onClick={() => goToSlide(i)}
+                      className="focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-full"
                       aria-label={`Go to slide ${i + 1}`}
-                      aria-current={i === currentSlide ? "true" : "false"}
+                      aria-current={i === currentSlide}
                     >
                       <div
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          i === currentSlide ? "w-12" : "w-2 opacity-50"
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          i === currentSlide ? "w-8" : "w-1.5 opacity-50"
                         }`}
                         style={{
-                          backgroundColor:
-                            i === currentSlide ? cur.color : "#94a3b8",
+                          backgroundColor: i === currentSlide ? cur.color : "#94a3b8",
                         }}
                       />
                     </button>
@@ -216,51 +236,56 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Image */}
+              {/* DESKTOP: Image on Right */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="flex-1 flex justify-center lg:justify-end w-full"
-                style={{ minHeight: "400px" }}
+                className="hidden lg:flex flex-1 justify-end w-full max-w-md"
               >
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 25,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 rounded-full blur-2xl opacity-30 -z-10 pointer-events-none"
-                  style={{ background: cur.color }}
-                  aria-hidden="true"
-                />
-                <div className="relative w-full max-w-[450px] md:max-w-[500px] lg:max-w-[550px] h-[400px] md:h-[450px] lg:h-[500px] flex items-center justify-center">
+                <div className="relative w-full aspect-square">
                   <img
                     src={cur.image}
                     alt={`${cur.title} - ${cur.subtitle}`}
-                    className="w-full h-full object-contain drop-shadow-2xl"
+                    className="w-full h-full object-contain drop-shadow-xl"
                     loading="eager"
                     style={{
                       opacity: imagesLoaded ? 1 : 0,
-                      transition: "opacity 0.3s ease-in-out",
+                      transition: "opacity 0.4s ease-in-out",
                     }}
                   />
                 </div>
               </motion.div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Chevron Buttons */}
+          <button
+            onClick={goToPrev}
+            className="absolute left-1 sm:left-3 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-pink-300 z-20"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-300 z-20"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+          </button>
         </div>
 
-        {/* STATS – Always below content, no overlap */}
-        <div className="w-full px-6 md:px-12 lg:px-16 pb-16 lg:pb-20">
+        {/* STATS BAR - CENTERED, NOT FULL WIDTH */}
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 -mt-8 md:-mt-10 z-20">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="max-w-full mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border border-pink-100"
+            transition={{ delay: 0.8 }}
+            className="bg-white/90 backdrop-blur-md rounded-xl shadow-xl border border-pink-100"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 py-5 sm:py-6">
               {[
                 { number: "3000+", label: "Surgical Oncology Patients" },
                 { number: "9000+", label: "Medical Oncology Patients" },
@@ -269,18 +294,18 @@ export default function HeroSection() {
               ].map((stat, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2 + i * 0.1 }}
+                  transition={{ delay: 1 + i * 0.1 }}
                   className="text-center"
                 >
                   <div
-                    className="text-2xl md:text-3xl lg:text-4xl font-bold"
+                    className="text-xl sm:text-2xl md:text-3xl font-bold"
                     style={{ color: cur.color }}
                   >
                     {stat.number}
                   </div>
-                  <div className="text-xs md:text-sm lg:text-base text-gray-600 mt-1">
+                  <div className="text-xs sm:text-sm text-gray-600 mt-0.5 leading-tight">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -290,8 +315,6 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* MODAL */}
-      <Modal isOpen={!!modalType} onClose={closeModal} type={modalType} />
     </>
   );
 }
