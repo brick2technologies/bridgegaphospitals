@@ -1,13 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character Encoding -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logoheader.png" />
+
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>bridgegap</title>
-  </head>
-  <body>
+
+    <!-- Primary Meta Tags -->
+    <title>Bridge Gap Hospital | Cancer Care in Nizamabad</title>
+    <meta
+      name="description"
+      content="Bridge Gap Hospital offers advanced cancer treatment, ICU care, and community outreach in Nizamabad. Explore our gallery, services, and events."
+    />
+    <meta name="keywords" content="cancer hospital, ICU, oncology, Nizamabad, cancer run, health camp" />
+    <meta name="author" content="Bridge Gap Hospital" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/logoheader.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#E92393" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bridge Gap Hospital | Cancer Care in Nizamabad" />
+    <meta
+      property="og:description"
+      content="Advanced cancer treatment, ICU care, and community health programs in Nizamabad."
+    />
+    <meta property="og:image" content="https://bridgegaphospitals.com/og-image.jpg" />
+    <meta property="og:url" content="https://bridgegaphospitals.com" />
+    <meta property="og:site_name" content="Bridge Gap Hospital" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bridge Gap Hospital | Cancer Care in Nizamabad" />
+    <meta
+      name="twitter:description"
+      content="Advanced cancer treatment, ICU care, and community health programs in Nizamabad."
+    />
+    <meta name="twitter:image" content="https://bridgegaphospitals.com/og-image.jpg" />
+    <meta name="twitter:site" content="@bridgegaphosp" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    <link rel="preload" href="/logoheader.svg" as="image" />
+
+    <!-- Google Fonts (Optional - Remove if not used) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /> -->
+
+    <!-- Security Headers (via meta - best effort) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bridgegaphospitals.com" />
+
+    <!-- Structured Data: Hospital -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hospital",
+        "name": "Bridge Gap Hospital",
+        "url": "https://bridgegaphospitals.com",
+        "logo": "https://bridgegaphospitals.com/logoheader.svg",
+        "image": "https://bridgegaphospitals.com/og-image.jpg",
+        "description": "Advanced cancer care hospital in Nizamabad with ICU, oncology, and community programs.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Nizamabad",
+          "addressLocality": "Nizamabad",
+          "addressRegion": "Telangana",
+          "postalCode": "503001",
+          "addressCountry": "IN"
+        },
+        "telephone": "+91-XXXXX-XXXXX",
+        "email": "info@bridgegaphospitals.com",
+        "department": [
+          {
+            "@type": "MedicalDepartment",
+            "name": "Oncology"
+          },
+          {
+            "@type": "MedicalDepartment",
+            "name": "ICU"
+          }
+        ],
+        "medicalSpecialty": "Oncology"
+      }
+    </script>
+
+    <!-- App Root -->
     <div id="root"></div>
+  </head>
+
+  <body class="font-sans antialiased bg-white text-gray-900">
+    <!-- Main App Script -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Optional: Analytics (Add your own) -->
+    <!-- Google Analytics, Facebook Pixel, etc. -->
+
+    <!-- Optional: Performance Monitoring -->
+    <!-- <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('loaded');
+        }, 100);
+      });
+    </script> -->
   </body>
 </html>
