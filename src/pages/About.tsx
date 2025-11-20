@@ -1,4 +1,4 @@
-'use client';
+
 
 import  { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -90,14 +90,6 @@ export default function AboutPage() {
   ];
 
   const doctors = [
-    {
-      name: "Dr. P. Pradyumna Reddy",
-      specialization: "Chief Radiation Oncologist",
-      experience: "20+ Years",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=800&fit=crop",
-      qualifications: ["MD", "MD"],
-      expertise: ["LINAC Radiation Therapy", "Brachytherapy", "Precision Oncology"],
-    },
     {
       name: "Dr. Amardeepika",
       specialization: "Center Head",
@@ -336,7 +328,7 @@ export default function AboutPage() {
               className="relative rounded-3xl overflow-hidden shadow-2xl mb-12"
             >
               <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=600&fit=crop"
+                src="About.jpg"
                 alt="Bridge Gap Hospital - State-of-the-art cancer care facility"
                 className="w-full h-96 object-cover"
                 loading="eager"

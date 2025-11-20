@@ -6,47 +6,48 @@ export default function TestimonialSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
-    {
-      name: "Priya Sharma",
-      role: "Breast Cancer Survivor",
-      image: "PS",
-      rating: 5,
-      text: "Bridge Gap Hospitals gave me hope when I needed it most. The compassionate care from Dr. Kumar and his team, combined with cutting-edge treatment, helped me beat cancer. I'm now 3 years cancer-free and living my best life!",
-      gradient: "from-pink-500 to-rose-500"
-    },
-    {
-      name: "Rajesh Mehta",
-      role: "Lung Cancer Survivor",
-      image: "RM",
-      rating: 5,
-      text: "The 24/7 support and personalized treatment plan made all the difference in my recovery. The medical team's expertise and genuine care transformed my cancer journey from fear to confidence. Forever grateful!",
-      gradient: "from-blue-500 to-cyan-500"
-    },
-    {
-      name: "Anita Desai",
-      role: "Ovarian Cancer Survivor",
-      image: "AD",
-      rating: 5,
-      text: "From diagnosis to recovery, Bridge Gap Hospitals stood by my side. Their advanced diagnostic facilities detected my cancer early, and the minimally invasive surgery gave me a new lease on life. The emotional support was invaluable.",
-      gradient: "from-purple-500 to-violet-500"
-    },
-    {
-      name: "Vikram Patel",
-      role: "Prostate Cancer Survivor",
-      image: "VP",
-      rating: 5,
-      text: "The radiation therapy was pain-free and highly effective. What impressed me most was how the team treated me like family. Their financial counseling also helped make quality treatment accessible. Truly exceptional care!",
-      gradient: "from-green-500 to-emerald-500"
-    },
-    {
-      name: "Lakshmi Reddy",
-      role: "Thyroid Cancer Survivor",
-      image: "LR",
-      rating: 5,
-      text: "The multidisciplinary approach at Bridge Gap Hospitals is remarkable. Every specialist worked together seamlessly for my treatment. The supportive care services, including counseling and nutrition guidance, helped me heal holistically.",
-      gradient: "from-orange-500 to-amber-500"
-    }
-  ];
+  {
+    name: "సైలోజా రెడ్డి",
+    role: "Breast Cancer Survivor",
+    image: "SR",
+    rating: 5,
+    text: "Bridge Gap Hospitals లో నాకు అందించిన care & support నిజంగా life-changing. Dr. Kiran గారి treatment వల్ల నేను ఇప్పుడు 3 years గా cancer-free గా హ్యాపీగా జీవిస్తున్నా. I'm truly grateful!",
+    gradient: "from-pink-500 to-rose-500"
+  },
+  {
+    name: "రాములు గౌడ్",
+    role: "Lung Cancer Survivor",
+    image: "RG",
+    rating: 5,
+    text: "24/7 support మరియు personalized treatment plan నా recovery లో చాలా important role పోషించాయి. Doctors showed real compassion and gave me full confidence. One of the best hospitals!",
+    gradient: "from-blue-500 to-cyan-500"
+  },
+  {
+    name: "వనజమ్మ పోలెపల్లి",
+    role: "Ovarian Cancer Survivor",
+    image: "VP",
+    rating: 5,
+    text: "Diagnosis నుండి recovery వరకు Bridge Gap టీం నా side లో ఉండటం నాకు పెద్ద support. Early detection మరియు minimally invasive surgery వల్ల నా జీవితం save అయింది. Their emotional support was amazing!",
+    gradient: "from-purple-500 to-violet-500"
+  },
+  {
+    name: "మల్లేశం యాదవ్",
+    role: "Prostate Cancer Survivor",
+    image: "MY",
+    rating: 5,
+    text: "Their radiation therapy was totally pain-free and very effective. Staff అంతా నాకు familyలాగా behave అయ్యారు. Financial counseling కూడా చాలా help అయ్యింది. Truly exceptional service!",
+    gradient: "from-green-500 to-emerald-500"
+  },
+  {
+    name: "లక్ష్మి శోభన్",
+    role: "Thyroid Cancer Survivor",
+    image: "LS",
+    rating: 5,
+    text: "Bridge Gap Hospitals లో multidisciplinary approach superb. Every specialist worked together for my treatment. Counseling, nutrition guidance, supportive care — అన్నీ top-notch. I feel completely healthy now!",
+    gradient: "from-orange-500 to-amber-500"
+  }
+];
+
 
   const stats = [
     { icon: Heart, value: "5000+", label: "Lives Saved" },
