@@ -91,26 +91,27 @@ export default function AboutPage() {
 
   const doctors = [
     {
-      name: "Dr. Amardeepika",
-      specialization: "Center Head",
-      experience: "15+ Years",
-      image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop",
-      qualifications: ["MBBS", "DLO", "DNB"],
-      expertise: ["Head & Neck Oncology", "Patient Counseling", "Clinical Operations"],
-    },
-    {
       name: "Dr. Chinna Babu Sunkavalli",
       specialization: "Robotic Surgical Oncologist",
       experience: "15+ Years",
-      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=800&fit=crop",
+      image: "/doctors/Doctor2.jpg",
       qualifications: ["M.S.", "M.Ch"],
       expertise: ["Robotic Surgery", "Complex Tumor Resection", "Minimally Invasive Oncology"],
     },
     {
-      name: "Dr. Panasa Aravind",
+      name: "Dr. Amar Deepika Gejje",
+      specialization: "Medical Director",
+      experience: "15+ Years",
+      image: "/doctors/Dr-AmaarDeepika.jpg",
+      qualifications: ["MBBS", "DLO", "DNB"],
+      expertise: ["Head & Neck Oncology", "Patient Counseling", "Clinical Operations"],
+    },
+    
+    {
+      name: "Dr. Aravind Panasa",
       specialization: "Radiation Oncologist",
       experience: "12+ Years",
-      image: "https://images.unsplash.com/photo-1582750431035-281617d666e9?w=600&h=800&fit=crop",
+      image: "/doctors/Dr-Arvind.jpg",
       qualifications: ["MBBS", "MD", "DNB (RT)"],
       expertise: ["External Beam Radiation", "IMRT", "Stereotactic Radiotherapy"],
     },
@@ -118,34 +119,59 @@ export default function AboutPage() {
       name: "Dr. Karthik Kurapati",
       specialization: "Surgical Oncologist",
       experience: "10+ Years",
-      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=800&fit=crop",
+      image: "/doctors/Dr-Karthik.jpg",
       qualifications: ["M.S.", "M.Ch"],
       expertise: ["Breast & GI Oncology", "Head and Neck Surgery", "Laparoscopic Procedures"],
+    },
+    {
+      name: "Dr. K. Prashanth Reddy",
+      specialization: "RADIATION ONCOLOGIST",
+      experience: "10+ Years",
+      image: "/doctors/DrPrashanth.jpg",
+      qualifications: ["MD"],
+      expertise: [],
     },
     {
       name: "Dr. Venugopal Arroju",
       specialization: "Medical Oncologist",
       experience: "12+ Years",
-      image: "https://images.unsplash.com/photo-1551601651-bc44fabe3a05?w=600&h=800&fit=crop",
+      image: "/doctors/DrVenu-Gopal.jpg",
       qualifications: ["MD", "DM"],
       expertise: ["Chemotherapy", "Immunotherapy", "Targeted Therapy"],
     },
+     {
+      name: "Dr. M. Chaitanya Kumar",
+      specialization: "Radiation Oncologist",
+      experience: "9+ Years",
+      image: "/doctors/Doctor1.jpg",
+      qualifications: ["MBBS", "DNB"],
+      expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
+    },
     {
-      name: "Dr. Anil Kumar Muppidi",
-      specialization: "Anesthesiologist",
+      name: "Dr. Ravindranath Soory",
+      specialization: "RMO",
       experience: "10+ Years",
-      image: "https://images.unsplash.com/photo-1612349316229-bb14b5c4d5e6?w=600&h=800&fit=crop",
+      image: "/doctors/Dr-Ravindranath-soory.jpg",
       qualifications: ["MD"],
       expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
     },
     {
-      name: "Dr. M. Chaitanya Kumar",
-      specialization: "Radiation Oncologist",
-      experience: "9+ Years",
-      image: "https://images.unsplash.com/photo-1581093588401-fbb62a062d27?w=600&h=800&fit=crop",
-      qualifications: ["MBBS", "DNB"],
-      expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
+      name: "Dr. Anil Kumar Muppidi",
+      specialization: "Anesthesiology",
+      experience: "10+ Years",
+      image: "/doctors/Doctor3.jpg",
+      qualifications: ["MD"],
+      expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
     },
+    {
+      name: "Dr. Jadala Balamani",
+      specialization: "DMO",
+      experience: "10+ Years",
+      image: "/doctors/Dr-Balamani.jpg",
+      qualifications: ["MD"],
+      expertise: [],
+    },
+   
   ];
 
   const treatmentProcess = [
@@ -414,7 +440,7 @@ export default function AboutPage() {
                 className="relative"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&h=800&fit=crop"
+                  src="/doctors/Aboutmain.png"
                   alt="Cancer treatment team providing compassionate care"
                   className="w-full rounded-3xl shadow-2xl object-cover"
                   loading="lazy"
