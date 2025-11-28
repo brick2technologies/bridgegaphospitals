@@ -143,7 +143,7 @@ export default function AboutPage() {
       name: "Dr. M. Chaitanya Kumar",
       specialization: "Radiation Oncologist",
       experience: "9+ Years",
-      image: "/doctors/Doctor1.jpg",
+      image: "/doctors/Dr-Chaitanya.jpg",
       qualifications: ["MBBS", "DNB"],
       expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
     },
