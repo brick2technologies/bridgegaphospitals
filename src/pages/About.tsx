@@ -94,7 +94,7 @@ export default function AboutPage() {
       name: "Dr. Chinna Babu Sunkavalli",
       specialization: "Robotic Surgical Oncologist",
       experience: "15+ Years",
-      image: "/doctors/Doctor2.jpg",
+      image: "/doctors/Dr-ChinnaBabu.jpg",
       qualifications: ["M.S.", "M.Ch"],
       expertise: ["Robotic Surgery", "Complex Tumor Resection", "Minimally Invasive Oncology"],
     },
