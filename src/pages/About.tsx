@@ -90,89 +90,97 @@ export default function AboutPage() {
   ];
 
   const doctors = [
-    {
-      name: "Dr. Chinna Babu Sunkavalli",
-      specialization: "Robotic Surgical Oncologist",
-      experience: "15+ Years",
-      image: "/doctors/Dr-ChinnaBabu.jpg",
-      qualifications: ["M.S.", "M.Ch"],
-      expertise: ["Robotic Surgery", "Complex Tumor Resection", "Minimally Invasive Oncology"],
-    },
-    {
-      name: "Dr. Amar Deepika Gejje",
-      specialization: "Medical Director",
-      experience: "15+ Years",
-      image: "/doctors/Dr-AmaarDeepika.jpg",
-      qualifications: ["MBBS", "DLO", "DNB"],
-      expertise: ["Head & Neck Oncology", "Patient Counseling", "Clinical Operations"],
-    },
-    
-    {
-      name: "Dr. Aravind Panasa",
-      specialization: "Radiation Oncologist",
-      experience: "12+ Years",
-      image: "/doctors/Dr-Arvind.jpg",
-      qualifications: ["MBBS", "MD", "DNB (RT)"],
-      expertise: ["External Beam Radiation", "IMRT", "Stereotactic Radiotherapy"],
-    },
-    {
-      name: "Dr. Karthik Kurapati",
-      specialization: "Surgical Oncologist",
-      experience: "10+ Years",
-      image: "/doctors/Dr-Karthik.jpg",
-      qualifications: ["M.S.", "M.Ch"],
-      expertise: ["Breast & GI Oncology", "Head and Neck Surgery", "Laparoscopic Procedures"],
-    },
-    {
-      name: "Dr. K. Prashanth Reddy",
-      specialization: "RADIATION ONCOLOGIST",
-      experience: "10+ Years",
-      image: "/doctors/DrPrashanth.jpg",
-      qualifications: ["MD"],
-      expertise: [],
-    },
-    {
-      name: "Dr. Venugopal Arroju",
-      specialization: "Medical Oncologist",
-      experience: "12+ Years",
-      image: "/doctors/DrVenu-Gopal.jpg",
-      qualifications: ["MD", "DM"],
-      expertise: ["Chemotherapy", "Immunotherapy", "Targeted Therapy"],
-    },
-     {
-      name: "Dr. M. Chaitanya Kumar",
-      specialization: "Radiation Oncologist",
-      experience: "9+ Years",
-      image: "/doctors/Dr-Chaitanya.jpg",
-      qualifications: ["MBBS", "DNB"],
-      expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
-    },
-    {
-      name: "Dr. Ravindranath Soory",
-      specialization: "RMO",
-      experience: "10+ Years",
-      image: "/doctors/Dr-Ravindranath-soory.jpg",
-      qualifications: ["MD"],
-      expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
-    },
-    {
-      name: "Dr. Anil Kumar Muppidi",
-      specialization: "Anesthesiology",
-      experience: "10+ Years",
-      image: "/doctors/Doctor3.jpg",
-      qualifications: ["MD"],
-      expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
-    },
-    {
-      name: "Dr. Jadala Balamani",
-      specialization: "DMO",
-      experience: "10+ Years",
-      image: "/doctors/Dr-Balamani.jpg",
-      qualifications: ["MD"],
-      expertise: [],
-    },
-   
-  ];
+  {
+    name: "Dr. Chinna Babu Sunkavalli",
+    specialization: "Robotic Surgical Oncologist",
+    experience: "20+ Years",
+    image: "/doctors/Dr-ChinnaBabu.jpg",
+    qualifications: ["M.S.", "M.Ch"],
+    expertise: ["Robotic Surgery", "Complex Tumor Resection", "Minimally Invasive Oncology"],
+  },
+
+  {
+    name: "Dr. Amar Deepika Gejje",
+    specialization: "Medical Director",
+    experience: "12+ Years",
+    image: "/doctors/Dr-AmaarDeepika.jpg",
+    qualifications: ["MBBS", "DLO", "DNB"],
+    expertise: ["Head & Neck Oncology", "Patient Counseling", "Clinical Operations"],
+  },
+
+  {
+    name: "Dr. Aravind Panasa",
+    specialization: "Radiation Oncologist",
+    experience: "5+ Years",
+    image: "/doctors/Dr-Arvind.jpg",
+    qualifications: ["MD (RT)"],
+    expertise: ["External Beam Radiation", "IMRT", "Stereotactic Radiotherapy"],
+  },
+
+  {
+    name: "Dr. Karthik Kurapati",
+    specialization: "Surgical Oncologist",
+    experience: "12+ Years",
+    image: "/doctors/Dr-Karthik.jpg",
+    qualifications: ["M.S.", "DNB"],
+    expertise: ["Breast & GI Oncology", "Head and Neck Surgery", "Laparoscopic Procedures"],
+  },
+
+  {
+    name: "Dr. K. Prashanth Reddy",
+    specialization: "Radiation Oncologist",
+    experience: "15+ Years",
+    image: "/doctors/DrPrashanth.jpg",
+    qualifications: ["MBBS", "MD"],
+    expertise: [],
+  },
+
+  {
+    name: "Dr. Venugopal Arroju",
+    specialization: "Medical Oncologist",
+    experience: "20+ Years",
+    image: "/doctors/DrVenu-Gopal.jpg",
+    qualifications: ["MD", "DM"],
+    expertise: ["Chemotherapy", "Immunotherapy", "Targeted Therapy"],
+  },
+
+  {
+    name: "Dr. M. Chaitanya Kumar",
+    specialization: "Radiation Oncologist",
+    experience: "6+ Years",
+    image: "/doctors/Dr-Chaitanya.jpg",
+    qualifications: ["MBBS", "DNB"],
+    expertise: ["SRS", "SBRT", "Advanced Radiation Techniques"],
+  },
+
+  {
+    name: "Dr. Ravindranath Soory",
+    specialization: "RMO",
+    experience: "25+ Years",
+    image: "/doctors/Dr-Ravindranath-soory.jpg",
+    qualifications: ["MBBS"],
+    expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
+  },
+
+  {
+    name: "Dr. Anil Kumar Muppidi",
+    specialization: "Anesthesiology",
+    experience: "5+ Years",
+    image: "/doctors/Doctor3.jpg",
+    qualifications: ["MD"],
+    expertise: ["Onco-Anesthesia", "Critical Care", "Pain Management"],
+  },
+
+  {
+    name: "Dr. Jadala Balamani",
+    specialization: "DMO",
+    experience: "7+ Years",
+    image: "/doctors/Dr-Balamani.jpg",
+    qualifications: ["MBBS"],
+    expertise: [],
+  },
+];
+
 
   const treatmentProcess = [
     {
